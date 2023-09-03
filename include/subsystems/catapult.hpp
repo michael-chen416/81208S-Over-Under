@@ -1,4 +1,4 @@
 #include "main.h"
 
-void resetCatapult();
+void OpCatapult();
 void fireCatapult();

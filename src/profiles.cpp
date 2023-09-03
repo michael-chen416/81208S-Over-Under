@@ -12,20 +12,8 @@ okapi::Controller controller(okapi::ControllerId::master);
 /*Right top*/okapi::Motor rt(19, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 
 //drive group
-okapi::MotorGroup driveLeftGroup = {lb, lf, lt};
-okapi::MotorGroup driveRightGroup = {rb, rf, rt};
-okapi::MotorGroup driveGroup = {lb, lf, lt, rb, rf, rt};
-/*
-
-lf 8
-lb 17
-lt 18
-
-rf 7
-rb 20
-rt 19
-*/
-
+/*Left group*/okapi::MotorGroup driveLeftGroup = {lb, lf, lt};
+/*Right group*/okapi::MotorGroup driveRightGroup = {rb, rf, rt};
 
 //Intake
 /*Right intake*/ okapi::Motor ri(10, false, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
@@ -35,8 +23,3 @@ rt 19
 //Catapult
 /*Catapult*/okapi::Motor catapult(11, false, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
 /*Potentionmeter*/okapi::Potentiometer potentiometer('H');
-
-//wings 
-/*Left wing*/
-/*Right wing*/
-/*Back wing? [citation needed]*/

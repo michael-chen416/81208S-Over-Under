@@ -79,7 +79,7 @@ void opcontrol() {
 	while (true) {
 		driveChassis();
 		updateIntake();
-		fireCatapult();
+		OpCatapult();
 		
 		pros::delay(10);
 	}

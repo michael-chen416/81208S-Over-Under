@@ -11,22 +11,18 @@ extern okapi::Controller controller;
 /*Right top*/extern okapi::Motor rt;
 
 //Drive motor groups
-extern okapi::MotorGroup driveLeftGroup;
-extern okapi::MotorGroup driveRightGroup;
-extern okapi::MotorGroup driveGroup;
+/*Left group*/extern okapi::MotorGroup driveLeftGroup;
+/*Right group*/extern okapi::MotorGroup driveRightGroup;
 
 
 //Intake motors
 /*Right intake*/extern okapi::Motor ri;
 /*Left intake*/extern okapi::Motor li;
 /*Intake motor group*/extern okapi::MotorGroup intake;
+
+
 /*Catapult*/extern okapi::Motor catapult;
 
 
 //sensors
 /*Catapult potentiometer*/extern okapi::Potentiometer potentiometer;
-
-//Pistons
-/*Left Wing*/
-/*Right Wing*/
-/*Back wing thing*/
