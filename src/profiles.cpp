@@ -21,5 +21,5 @@ okapi::Controller controller(okapi::ControllerId::master);
 /*Intake motor group*/ okapi::MotorGroup intake = {ri, li};
 
 //Catapult
-/*Catapult*/okapi::Motor catapult(11, false, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
+/*Catapult*/okapi::Motor catapult(11, true, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
 /*Potentionmeter*/okapi::Potentiometer potentiometer('H');

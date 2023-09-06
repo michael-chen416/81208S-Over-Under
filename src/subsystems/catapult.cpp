@@ -1,12 +1,12 @@
 #include "subsystems/catapult.hpp"
 
 uint32_t lastPressed = 1500; // needs to be adjusted.
-// catapult down positon: 1480
+// catapult down positon: 1450
 // catapult up position: 8
 void OpCatapult()
 {
     okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-    if (potentiometer.get() > 1470)
+    if (potentiometer.get() > 1450)
     { // if not shooting, move the catapult into the correct position.
         catapult.moveVoltage(12000);
     }
