@@ -16,8 +16,8 @@ okapi::Controller controller(okapi::ControllerId::master);
 /*Right group*/okapi::MotorGroup driveRightGroup = {rb, rf, rt};
 
 //Intake
-/*Right intake*/ okapi::Motor ri(10, false, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
-/*Left intake*/okapi::Motor li(9, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
+/*Right intake*/ okapi::Motor ri(10, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
+/*Left intake*/okapi::Motor li(9, false, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
 /*Intake motor group*/ okapi::MotorGroup intake = {ri, li};
 
 //Catapult
