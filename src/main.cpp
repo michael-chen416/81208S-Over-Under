@@ -24,7 +24,7 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
+	pros::lcd::set_text(1, "81208S code cannedrice edition 😋🤤");
 
 	pros::lcd::register_btn1_cb(on_center_button);
 }
@@ -73,29 +73,36 @@ void autonomous() {}
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-void opcontrol() {
+void opcontrol()
+{
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	okapi::ControllerButton fire(okapi::ControllerDigital::R1);
 
-	while (true) {
-		//catapult.moveVoltage(12000);
-		//driveChassis();
-		//updateIntake();
+	while (true)
+	{
+		pros::lcd::print(5, "potentiometer value: %f", potentiometer.get());
+		driveChassis();
+		updateIntake();
 
-		
-  if(potentiometer.get() < 1050){
-    catapult.moveVoltage(12000);
-  } else if(fire.changedToPressed()){
-	lastPressed = pros::millis();
-	catapult.moveRelative(30000, 12000);
-	pros::delay(100);
-	//catapult.moveVoltage(0);
-  } else if(pros::millis() - lastPressed > 350 && fire.isPressed()){
-	 catapult.moveVoltage(12000);
-	} else {
-    catapult.moveVoltage(0);
-  }
-		pros::lcd::print(potentiometer.get());
+		//Catapult code because the catapult file doesn't work unfortunately.
+		//Down Pos: 1425
+		if (potentiometer.get() < 1425) // catapult automatically goes down to the down position.
+		{
+			catapult.moveVoltage(12000);
+		}
+		else if (fire.changedToPressed())
+		{
+			lastPressed = pros::millis();
+			catapult.moveRelative(30000, 12000);
+		}
+		else if (pros::millis() - lastPressed > 350 && fire.isPressed())
+		{
+			catapult.moveVoltage(12000);
+		}
+		else
+		{
+			catapult.moveVoltage(0);
+		}
 		pros::delay(20);
 	}
 }

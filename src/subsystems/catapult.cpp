@@ -5,13 +5,7 @@
 // catapult up position: 8
 
 /* ++++++++++++++ NOTICE ++++++++++++++*/
-/* Catapult slipgear works now yippee, but the code doesn't for some reason sob */
+/* Catapult works as intended, it's just that this file doesn't work so everything is in main for now.a */
 void OpCatapult() {
-  pros::lcd::print(5, "potentiometer value: %f", potentiometer.get());
-  //okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-
-
-
-
 
 }
