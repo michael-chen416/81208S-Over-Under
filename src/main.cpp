@@ -1,5 +1,5 @@
 #include "main.h"
-
+uint32_t lastPressed = -800;
 /**
  * A callback function for LLEMU's center button.
  *
@@ -75,12 +75,27 @@ void autonomous() {}
  */
 void opcontrol() {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
+	okapi::ControllerButton fire(okapi::ControllerDigital::R1);
 
 	while (true) {
-		driveChassis();
-		updateIntake();
-		OpCatapult();
+		//catapult.moveVoltage(12000);
+		//driveChassis();
+		//updateIntake();
+
 		
-		pros::delay(10);
+  if(potentiometer.get() < 1050){
+    catapult.moveVoltage(12000);
+  } else if(fire.changedToPressed()){
+	lastPressed = pros::millis();
+	catapult.moveRelative(30000, 12000);
+	pros::delay(100);
+	//catapult.moveVoltage(0);
+  } else if(pros::millis() - lastPressed > 350 && fire.isPressed()){
+	 catapult.moveVoltage(12000);
+	} else {
+    catapult.moveVoltage(0);
+  }
+		pros::lcd::print(potentiometer.get());
+		pros::delay(20);
 	}
 }
