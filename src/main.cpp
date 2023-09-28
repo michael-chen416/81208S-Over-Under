@@ -24,7 +24,7 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "81208S code cannedrice edition 😋🤤");
+	pros::lcd::set_text(1, "81208S code ");
 
 	pros::lcd::register_btn1_cb(on_center_button);
 }
@@ -83,17 +83,16 @@ void opcontrol()
 		pros::lcd::print(5, "potentiometer value: %f", potentiometer.get());
 		driveChassis();
 		updateIntake();
-
 		//Catapult code because the catapult file doesn't work unfortunately.
-		//Down Pos: 1425
-		if (potentiometer.get() < 1425) // catapult automatically goes down to the down position.
-		{
+		//Down Pos: 1480
+		if (potentiometer.get() < 1281) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		{ //its so jank???
 			catapult.moveVoltage(12000);
 		}
 		else if (fire.changedToPressed())
 		{
 			lastPressed = pros::millis();
-			catapult.moveRelative(30000, 12000);
+			catapult.moveRelative(3000, 12000);
 		}
 		else if (pros::millis() - lastPressed > 350 && fire.isPressed())
 		{
