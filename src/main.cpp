@@ -1,4 +1,5 @@
 #include "main.h"
+int autonNumber = 0;
 uint32_t lastPressed = -800;
 /**
  * A callback function for LLEMU's center button.
@@ -59,7 +60,33 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() { 
-
+switch(autonNumber){
+		case 0:
+			pros::lcd::set_text(1, "Auton Path 1");
+			// winPointAuton();
+			closeSide();
+			break;
+		case 1:
+			pros::lcd::set_text(1, "Auton Path 2");
+			//code here
+			
+			break;
+		case 2:
+			pros::lcd::set_text(1, "Auton Path 3");
+			//code here
+			
+			break;
+		case 3:
+			pros::lcd::set_text(1, "Auton Path 4");
+			//code here
+			
+			break;
+		case 4:
+			pros::lcd::set_text(1, "Skills");
+			//code here
+			
+			break;
+	}
 }
 
 /**
