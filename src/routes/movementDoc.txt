@@ -1,0 +1,77 @@
+MOVEDISTANCE
+    MOTION PROFILE (autonomous)
+        motion_profile motionProfile; //creates the class that controls all future movements that require motion profiling
+
+        PIDvalues profilePID; //holds the PID values for adjusting heading during motion profiling, can be reused in the future
+        profilePID.kp = 0.03;
+        profilePID.ki = 0;
+        profilePID.kd = 0.08;
+
+        MotionData profileData; //holds the profile data for adjusting speed thoughout the profile, names should be self-explanatory
+        profileData.accelTime = 0.1; //in seconds
+        profileData.decelTime = 0.4; //in seconds
+        profileData.maxVelocity = 40; //in inches/second
+        profileData.minVelocity = 3; //in inches/second
+
+        motionProfile.moveDistance(24, 0, 2, profilePID, profileData);
+        motionProfile.moveDistance(24, 0, 2, {0.03, 0, 0.08}, {40, 0.1, 0.4, 3});
+        //distance in inches, heading degree, offset in inches, PID values, DATA values
+        //These 2 functions run the same, but the first one uses preexisting numbers for motion profiling and PID, while the other defines them within function
+
+TURNING
+    TYPE 1 - rotationTurn //turns on the spot using both wheels
+        PIDvalues turnPID;
+        turnPID.kp = 0.019;
+        turnPID.ki = 0;
+        turnPID.kd = 0.04;
+        rotationTurn(90, 8000, 0.5, 1000, turnPID); //this turns 90 degrees, pushing a max of 8000 millivolts to motor, with .5 degrees of tolerance, can use upto 1000 milliseconds to complete the function, and uses the predetermined PID values
+
+        rotationTurn(90, 8000, 0.5, 1000, {0.019, 0, 0.04}); //this does the same thing as the function above, but defines the PID values within the method call
+
+
+    TYPE 2 - pivotTurn //turns using one wheel
+        PIDvalues turnPID;
+        turnPID.kp = 0.019;
+        turnPID.ki = 0;
+        turnPID.kd = 0.04;
+        pivotTurn(90, 8000, 0.5, 2400, true, turnPID); //this turns 90 degrees, pushing a max of 8000 volts into one motor, has .5 degrees of tolerance, can use upto 2400 milliseconds to complete the task, true means we are using the left wheel, and uses predetermined PID values
+
+        pivotTurn(90, 8000, 0.5, 2400, false, {0.019, 0, 0.04}); //this shares the first 4 values of the previous pivot example, but false means it uses the right wheel, and it defines the PID values within the method call instead of using preexisting ones 
+
+
+    TYPE 3 - travelTurn //travels a distance while slowly adjusting the angle - this one is very inconsistent for some reason
+        PIDvalues turnPID;
+        turnPID.kp = 0.019;
+        turnPID.ki = 0;
+        turnPID.kd = 0.04;
+        travelTurn(24, 6000, 45, 3000, 0.5, 2400, turnPID); //this travels 24 inches, pushes 6000 millivolts forward, has a heading target of 45 degrees, pushes 3000 millivolts into turning, has a degree tolerance of 0.5, has a timeout of 2400 milliseconds, and uses pre existing PID values
+        
+        travelTurn(24, 6000, 45, 3000, 0.5, 2400, {0.019, 0, 0.04}); //this does the same thing as the previous function, but creates its own PID values within the method call
+
+ODOMETRY STANDARD USAGE
+    Odometry is automatically started in auton
+    To manually pudate the robot position in code (robot physically does not move) use resetRobotPos
+
+    resetRobotPos() with empty brackets resets x, y, and heading to 0
+
+    resetRobotPos(double currX, double currY, double theta) sets the internal values of x, y, and heading to the inputted values
+    this should be very helpful for tuning auton, especially if we start in a random position
+    should be implemented in other locations such as for PP code, helps significantly with setting up position coordinates
+
+    for standards, lets use the bottom left corner as point of origin (0, 0), and top right corner as (144, 144)
+    this should be the standard for PP as well, jonathan you can update this to make it work 
+
+    Odom runs continuously even while we are not using odometry functions, so we can combine regular motion profiling/turning with moveToPoint
+
+    the normal movement function in odom is moveToPoint(), documentation below is:
+
+    void moveToPoint(double targetX, double targetY, bool forward, PIDvalues turnValues, PIDvalues movementValues, MotionData data)
+
+    targetX and targetY represent the x and y coordinates to driven to
+    forward/backward determines if we reach the destination with the front or back of the robot
+    all other values are PID and motionData required to perform turning and motion profiling tasks within moveToPoint
+
+OTHER SUBSYSTEMS
+    fireShooter(); //this fires the shooter using a preprogrammed sequence, if resetCataTask is running it will bring itself down
+    progOuttake(); //this outtakes at the milliVoltage specified 
+    progIntake(); //this intakes at the milliVoltage specified

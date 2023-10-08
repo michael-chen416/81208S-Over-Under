@@ -23,3 +23,7 @@ okapi::Controller controller(okapi::ControllerId::master);
 // Catapult
 /* Catapult */okapi::Motor catapult(13, true, okapi::AbstractMotor::gearset::red, okapi::AbstractMotor::encoderUnits::degrees);
 /* Potentionmeter */okapi::Potentiometer potentiometer('H');
+
+
+// Auton
+/* Gyro */pros::Imu gyro(16);

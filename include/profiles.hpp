@@ -22,3 +22,6 @@ extern okapi::Controller controller;
 // Catapult
 /* Catapult */extern okapi::Motor catapult;
 /* Catapult potentiometer */extern okapi::Potentiometer potentiometer;
+
+// Auton 
+/* Gyro */extern pros::IMU gyro;

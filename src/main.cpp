@@ -58,7 +58,9 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() { 
+
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -86,7 +88,7 @@ void opcontrol()
 		//Catapult code because the catapult file doesn't work unfortunately.
 		//Down Pos: 1480
 		if (potentiometer.get() < 1240) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
-		{ //its so jank???
+		{ 
 			catapult.moveVoltage(12000);
 		}
 		else if (fire.changedToPressed())
