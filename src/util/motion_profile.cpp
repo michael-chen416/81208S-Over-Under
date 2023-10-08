@@ -4,7 +4,7 @@ using namespace std;
 #define M_PI 3.14159265358979323846
 #define CIRCUMFERENCE 4.0 * M_PI
 #define ENCODER_TICKS 360
-#define GEAR_RATIO 3/6
+#define GEAR_RATIO 3/5
 #define ANGLE_TOLERANCE 2
 #define MAX_VELOCITY 20;
 
