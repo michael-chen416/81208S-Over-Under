@@ -45,7 +45,7 @@ void motion_profile::moveDistance(double distance, double direction, double offs
     double rightStart = getAverageRightRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO;
 
     //set target variables
-    double leftTarget = getAverageLeftRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO+ distance;
+    double leftTarget = getAverageLeftRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO + distance;
     double rightTarget = getAverageRightRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO + distance;
     double gyroReading = 0;
     double minVelocity = _data.minVelocity;
@@ -65,7 +65,7 @@ void motion_profile::moveDistance(double distance, double direction, double offs
         pros::lcd::print(4, "right current: %f", getAverageRightRotation());
 
 
-        double distanceTraveled = leftCurrent + rightCurrent - leftStart - rightStart; //how far robot has traveled ,in inches (averaged out)
+        double distanceTraveled = leftCurrent + rightCurrent - leftStart - rightStart; //how far robot has traveled, in inches (averaged out)
         distanceTraveled /= 2;
         distanceTraveled = abs(distanceTraveled);
 
