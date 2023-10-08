@@ -85,14 +85,14 @@ void opcontrol()
 		updateIntake();
 		//Catapult code because the catapult file doesn't work unfortunately.
 		//Down Pos: 1480
-		if (potentiometer.get() < 1281) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		if (potentiometer.get() < 1240) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
 		{ //its so jank???
 			catapult.moveVoltage(12000);
 		}
 		else if (fire.changedToPressed())
 		{
 			lastPressed = pros::millis();
-			catapult.moveRelative(3000, 12000);
+			catapult.moveRelative(1000, 12000);
 		}
 		else if (pros::millis() - lastPressed > 350 && fire.isPressed())
 		{
