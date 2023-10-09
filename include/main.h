@@ -82,9 +82,18 @@ void opcontrol(void);
 #include <atomic>
 
 #include "profiles.hpp"
+
+#include "routes/routines.hpp"
+#include "routes/skills.hpp"
+
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
 #include "subsystems/catapult.hpp"
+
+#include "util/PID_controller.hpp"
+#include "util/motion_profile.hpp"
+#include "util/sensors.hpp"
+#include "util/turning.hpp"
 //#include <iostream>
 #endif
 
