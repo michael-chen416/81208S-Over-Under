@@ -7,15 +7,7 @@ uint32_t lastPressed = -800;
  * When this callback is fired, it will toggle line 2 of the LCD text between
  * "I was pressed!" and nothing.
  */
-void on_center_button() {
-	static bool pressed = false;
-	pressed = !pressed;
-	if (pressed) {
-		pros::lcd::set_text(2, "I was pressed!");
-	} else {
-		pros::lcd::clear_line(2);
-	}
-}
+void on_center_button() {}
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -25,9 +17,11 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "81208S code ");
+	//pros::lcd::set_text(1, "81208S code ");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
+	
 }
 
 /**
@@ -60,33 +54,17 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() { 
-switch(autonNumber){
-		case 0:
-			pros::lcd::set_text(1, "Auton Path 1");
-			// winPointAuton();
-			closeSide();
-			break;
-		case 1:
-			pros::lcd::set_text(1, "Auton Path 2");
-			//code here
-			
-			break;
-		case 2:
-			pros::lcd::set_text(1, "Auton Path 3");
-			//code here
-			
-			break;
-		case 3:
-			pros::lcd::set_text(1, "Auton Path 4");
-			//code here
-			
-			break;
-		case 4:
-			pros::lcd::set_text(1, "Skills");
-			//code here
-			
-			break;
-	}
+		motion_profile motionProfile;
+		motionProfile.moveDistance(48, 0, 1,{0.2, 0, 0.005}, {30, 0.1, 0.1, 30}, 500); //
+		//motionProfile.moveDistance(48, 0, 1,{0.2, 0, 0.005}, {60, 0.1, 0.3, 10}, 500);
+		pros::lcd::print(1, "lf %f", lf.getPosition());
+        pros::lcd::print(2, "lb %f", lb.getPosition());
+        pros::lcd::print(3, "lt: %f", lt.getPosition());
+        // pros::lcd::print(3, "left current: %f", getAverageLeftRotation());
+        pros::lcd::print(4, "right current: %f", getAverageRightRotation());
+     //rotationTurn(90, 12000, 0.5, 600, {0.0, 0, 0.0});
+
+	 //void motion_profile::moveDistance(double distance, double direction, double offset, PIDvalues values, MotionData Data){
 }
 
 /**
