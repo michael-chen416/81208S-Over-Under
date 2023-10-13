@@ -51,7 +51,7 @@ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 /* Gyro */pros::Imu gyro(16);
 
 //Pneumatics
-pros::ADIDigitalOut rightWing('C',LOW); // change these values later
+pros::ADIDigitalOut rightWing('A',LOW); // change these values later
 pros::ADIDigitalOut leftWing('D',LOW);
-pros::ADIDigitalOut matchloadBar('F',LOW);
-pros::ADIDigitalOut hangMech('F',LOW);
+pros::ADIDigitalOut matchloadBar('B',LOW);
+pros::ADIDigitalOut hangMech('E',LOW);

@@ -16,6 +16,10 @@ void extendArm();
 
 void retractArm();
 
+void toggleArm();
+
 void extendMatchload();
 
 void retractMatchload();
+
+void toggleMatchLoad();

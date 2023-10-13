@@ -90,9 +90,10 @@ void opcontrol()
 		pros::lcd::print(5, "potentiometer value: %f", potentiometer.get());
 		driveChassis();
 		updateIntake();
+		updatePneumatics();
 		//Catapult code because the catapult file doesn't work unfortunately.
 		//Down Pos: 1480
-		if (potentiometer.get() < 1240) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		if (potentiometer.get() < 1280) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
 		{ 
 			catapult.moveVoltage(12000);
 		}

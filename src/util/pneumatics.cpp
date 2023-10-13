@@ -8,6 +8,13 @@ void updatePneumatics(){
     if(rightButton.changedToPressed()){
         toggleRightWing();
     }
+    if(XButton.changedToPressed()){
+        toggleArm();
+    }
+    if(BButton.changedToPressed()){
+        toggleMatchLoad();
+    }
+
 }
 
 /**
@@ -89,6 +96,14 @@ void retractArm() {
     climbingState = false;
 }
 
+void toggleArm(){
+    if(climbingState == false){
+        extendArm();
+    } else {
+        retractArm();
+    }
+}
+
 /**
  * @brief toggles arm state
  * 
@@ -101,4 +116,12 @@ void extendMatchload(){
 void retractMatchload(){
     matchloadBar.set_value(false);
     matchloadState = false;
+}
+
+void toggleMatchLoad(){
+    if(matchloadState == false){
+        extendMatchload();
+    } else {
+        retractMatchload();
+    }
 }
