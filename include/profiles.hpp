@@ -1,6 +1,28 @@
 #include "okapi/api.hpp"
+
+extern bool leftWingState;
+extern bool rightWingState;
+extern bool matchloadState;
+extern bool climbingState;
+
 // Controller
 extern okapi::Controller controller;
+
+extern okapi::ControllerAnalog leftY;
+extern okapi::ControllerAnalog rightX;
+extern okapi::ControllerAnalog rightY;
+extern okapi::ControllerButton l1;
+extern okapi::ControllerButton l2;
+extern okapi::ControllerButton r1;
+extern okapi::ControllerButton r2;
+extern okapi::ControllerButton leftButton;
+extern okapi::ControllerButton downButton;
+extern okapi::ControllerButton rightButton;
+extern okapi::ControllerButton upButton;
+extern okapi::ControllerButton YButton;
+extern okapi::ControllerButton AButton;
+extern okapi::ControllerButton BButton;
+extern okapi::ControllerButton XButton;
 
 // Drivetrain 
 /* Left front */extern okapi::Motor lf;
@@ -25,3 +47,9 @@ extern okapi::Controller controller;
 
 // Auton 
 /* Gyro */extern pros::IMU gyro;
+
+//Pneumatics
+pros::ADIDigitalOut rightWing;
+pros::ADIDigitalOut leftWing;
+pros::ADIDigitalOut matchloadBar;
+pros::ADIDigitalOut hangMech;

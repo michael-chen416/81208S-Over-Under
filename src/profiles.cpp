@@ -1,7 +1,28 @@
 #include "main.h"
 
+extern bool leftWingState = false;
+extern bool rightWingState = false;
+extern bool matchloadState = false;
+extern bool climbingState = false;
+
 // Controller
 okapi::Controller controller(okapi::ControllerId::master);
+
+okapi::ControllerAnalog leftY(okapi::ControllerAnalog::leftY);
+okapi::ControllerAnalog rightX(okapi::ControllerAnalog::rightX);
+okapi::ControllerAnalog rightY(okapi::ControllerAnalog::rightY);
+okapi::ControllerButton l1(okapi::ControllerDigital::L1);
+okapi::ControllerButton l2(okapi::ControllerDigital::L2);
+okapi::ControllerButton r1(okapi::ControllerDigital::R1);
+okapi::ControllerButton r2(okapi::ControllerDigital::R2);
+okapi::ControllerButton rightButton(okapi::ControllerDigital::right);
+okapi::ControllerButton downButton(okapi::ControllerDigital::down);
+okapi::ControllerButton leftButton(okapi::ControllerDigital::left);
+okapi::ControllerButton upButton(okapi::ControllerDigital::up); //no current bind atm
+okapi::ControllerButton AButton(okapi::ControllerDigital::A);
+okapi::ControllerButton BButton(okapi::ControllerDigital::B);
+okapi::ControllerButton XButton(okapi::ControllerDigital::X);
+okapi::ControllerButton YButton(okapi::ControllerDigital::Y);
 
 // Drivetrain
 /* Left front */okapi::Motor lf(8, true ,okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
@@ -27,3 +48,9 @@ okapi::Controller controller(okapi::ControllerId::master);
 
 // Auton
 /* Gyro */pros::Imu gyro(16);
+
+//Pneumatics
+pros::ADIDigitalOut rightWing('C',LOW); // change these values later
+pros::ADIDigitalOut leftWing('D',LOW);
+pros::ADIDigitalOut matchloadBar('F',LOW);
+pros::ADIDigitalOut hangMech('F',LOW);

@@ -94,6 +94,7 @@ void opcontrol(void);
 #include "util/motion_profile.hpp"
 #include "util/sensors.hpp"
 #include "util/turning.hpp"
+#include "util/pneumatics.hpp"
 //#include <iostream>
 #endif
 
