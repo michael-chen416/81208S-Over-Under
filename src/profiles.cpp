@@ -1,9 +1,9 @@
 #include "main.h"
 
-extern bool leftWingState = false;
-extern bool rightWingState = false;
-extern bool matchloadState = false;
-extern bool climbingState = false;
+bool leftWingState = false;
+bool rightWingState = false;
+bool matchloadState = false;
+bool climbingState = false;
 
 // Controller
 okapi::Controller controller(okapi::ControllerId::master);

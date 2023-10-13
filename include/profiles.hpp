@@ -50,7 +50,7 @@ extern okapi::MotorGroup driveGroup;
 /* Gyro */extern pros::IMU gyro;
 
 //Pneumatics
-pros::ADIDigitalOut rightWing;
-pros::ADIDigitalOut leftWing;
-pros::ADIDigitalOut matchloadBar;
-pros::ADIDigitalOut hangMech;
+extern pros::ADIDigitalOut rightWing;
+extern pros::ADIDigitalOut leftWing;
+extern pros::ADIDigitalOut matchloadBar;
+extern pros::ADIDigitalOut hangMech;
