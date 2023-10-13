@@ -13,6 +13,7 @@ extern okapi::Controller controller;
 // Drive motorgroups
 /* Left group */extern okapi::MotorGroup driveLeftGroup;
 /* Right group */extern okapi::MotorGroup driveRightGroup;
+extern okapi::MotorGroup driveGroup;
 
 // Intake 
 /* Right intake */extern okapi::Motor ri;

@@ -118,3 +118,8 @@ void closeSide(){
 //void rotationTurn(double angle, double turnVoltage, double momentum, uint32_t timeout, PIDvalues values){
 //void pivotTurn(double angle, double turnVoltage, double momentum, uint32_t timeout, bool isLeft, PIDvalues values){
 
+void tunePID(){ //pain
+    motion_profile motionProfile;
+     motionProfile.moveDistance(12, -48, 2,{0.0, 0, 0.0}, {60, 0.001, 0.003, 60}, 500);
+     rotationTurn(90, 12000, 0.5, 600, {0.0, 0, 0.0});
+}

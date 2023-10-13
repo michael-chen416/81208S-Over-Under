@@ -14,6 +14,7 @@ okapi::Controller controller(okapi::ControllerId::master);
 // Drivetrain Motor Group
 /* Left group*/okapi::MotorGroup driveLeftGroup = {lb, lf, lt};
 /* Right group*/okapi::MotorGroup driveRightGroup = {rb, rf, rt};
+okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 
 // Intake
 /* Right intake */okapi::Motor ri(10, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
