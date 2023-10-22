@@ -1,10 +1,11 @@
 #include "main.h"
 
 using namespace std;
-#define M_PI 3.14159265358979323846
+#define M_PI 3.1415926535897932384626433832795
 #define CIRCUMFERENCE 3.25 * M_PI
 #define ENCODER_TICKS 360
 #define GEAR_RATIO 3/5
+#define GEARBOX 600
 #define ANGLE_TOLERANCE 2
 #define MAX_VELOCITY 20;
 
@@ -61,14 +62,11 @@ void motion_profile::moveDistance(double distance, double direction, double offs
         //have to calculate speed and heading individually
         double leftCurrent = getAverageLeftRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO;
         double rightCurrent = getAverageRightRotation() / ENCODER_TICKS * CIRCUMFERENCE * GEAR_RATIO;
-        pros::lcd::print(1, "lf %f", lf.getPosition());
-        pros::lcd::print(2, "lb %f", lb.getPosition());
-        pros::lcd::print(3, "lt: %f", lt.getPosition());
         pros::lcd::print(3, "left current: %f", getAverageLeftRotation());
         pros::lcd::print(4, "right current: %f", getAverageRightRotation());
 
 
-        double distanceTraveled = leftCurrent + rightCurrent - leftStart - rightStart; //how far robot has traveled, in inches (averaged out)
+        double distanceTraveled = leftCurrent + rightCurrent - leftStart - rightStart; //how far robot has traveled ,in inches (averaged out)
         distanceTraveled /= 2;
         distanceTraveled = abs(distanceTraveled);
 
@@ -95,15 +93,15 @@ void motion_profile::moveDistance(double distance, double direction, double offs
         double velocity = velocityPoints[1]; //we take the second lowest velocity out of the 4 we have generated
 
         //velocity is now in inches/second, convert into percentage of max steering (drive is 300rpm on 3.25s)
-        double forwardVoltage = velocity / (CIRCUMFERENCE * 5); 
+        double forwardVoltage = velocity / (CIRCUMFERENCE * GEARBOX * GEAR_RATIO / 60); 
         //now that we have the velocity, we can worry about steering, use pid controller
         double steerVoltage = angleController.Calculate(getIMU());
 
         pros::lcd::print(5, "Distance remaining: %f", distanceRemaining);
         pros::lcd::print(6, "Distance traveled: %f", distanceTraveled);
         
-        moveLeftGroup(((squiggles::sgn(distance) * forwardVoltage + steerVoltage)*12000 + steerVoltage * 2500));
-        moveRightGroup(((squiggles::sgn(distance) * forwardVoltage - steerVoltage)*12000 - steerVoltage * 2500));
+        moveLeftGroup(((squiggles::sgn(distance) * forwardVoltage + steerVoltage)*12000));
+        moveRightGroup(((squiggles::sgn(distance) * forwardVoltage - steerVoltage)*12000));
 
         //if((distanceRemaining - offset) < 1){
         //    break;
@@ -175,20 +173,16 @@ void motion_profile::moveDistance(double distance, double direction, double offs
         }
         double velocity = velocityPoints[1]; //we take the second lowest velocity out of the 4 we have generated
 
-        //velocity is now in inches/second, convert into percentage of max steering (drive is 300rpm on 3.25s)
-        double forwardVoltage = velocity / (CIRCUMFERENCE * 5); 
+        //velocity is now in inches/second, convert into percentage of max power 600 rpm * 0.5
+        double forwardVoltage = velocity / (CIRCUMFERENCE * GEARBOX * GEAR_RATIO / 60); 
         //now that we have the velocity, we can worry about steering, use pid controller
         double steerVoltage = angleController.Calculate(getIMU());
 
         pros::lcd::print(5, "Distance remaining: %f", distanceRemaining);
         pros::lcd::print(6, "Distance traveled: %f", distanceTraveled);
         
-        moveLeftGroup(((squiggles::sgn(distance) * forwardVoltage + steerVoltage)*12000 + steerVoltage * 2500));
-        moveRightGroup(((squiggles::sgn(distance) * forwardVoltage - steerVoltage)*12000 - steerVoltage * 2500));
-
-        //if((distanceRemaining - offset) < 1){
-        //    break;
-        //}
+        moveLeftGroup(((squiggles::sgn(distance) * forwardVoltage + steerVoltage)*12000));
+        moveRightGroup(((squiggles::sgn(distance) * forwardVoltage - steerVoltage)*12000));
     }
     moveLeftGroup(0);
     moveRightGroup(0);

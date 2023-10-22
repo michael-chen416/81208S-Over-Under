@@ -1,5 +1,7 @@
 #include "main.h"
 int autonNumber = 0;
+bool skills = false; //false for regular matches, true for skills
+int catapos = 1180;
 uint32_t lastPressed = -800;
 /**
  * A callback function for LLEMU's center button.
@@ -54,15 +56,19 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() { 
-		motion_profile motionProfile;
-		motionProfile.moveDistance(48, 0, 1,{0.2, 0, 0.005}, {30, 0.1, 0.1, 30}, 500); //
-		//motionProfile.moveDistance(48, 0, 1,{0.2, 0, 0.005}, {60, 0.1, 0.3, 10}, 500);
-		pros::lcd::print(1, "lf %f", lf.getPosition());
-        pros::lcd::print(2, "lb %f", lb.getPosition());
-        pros::lcd::print(3, "lt: %f", lt.getPosition());
-        // pros::lcd::print(3, "left current: %f", getAverageLeftRotation());
-        pros::lcd::print(4, "right current: %f", getAverageRightRotation());
-     //rotationTurn(90, 12000, 0.5, 600, {0.0, 0, 0.0});
+		motion_profile motionProfile; // 1  0.2,0,0.005
+		//motionProfile.moveDistance(78, 0, 1,{0.05, 0, 0.01}, {40, 0.1, 0.3, 3}); 
+		
+		/*
+		movement profile = {0.05, 0, 0.01}
+		rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90 deg
+		*/
+		
+		// rotationTurn(45, 8000, 0.5, 6000, {0.0275, 0, 0.02});
+
+		closeSide();
+		
+		pros::lcd::print(2, "IMU: %f" , getIMU());
 
 	 //void motion_profile::moveDistance(double distance, double direction, double offset, PIDvalues values, MotionData Data){
 }
@@ -91,9 +97,20 @@ void opcontrol()
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
+		//toggle
+		if(YButton.changedToPressed()){
+			if(skills == false) {
+				skills = true;
+				catapos = 1100;
+			} else {
+				skills = false;
+				catapos = 1180;
+			}
+		}
+
 		//Catapult code because the catapult file doesn't work unfortunately.
-		//Down Pos: 1480
-		if (potentiometer.get() < 1280) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		//Down Pos: 1180 reg match : 1100 skills
+		if (potentiometer.get() < catapos) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
 		{ 
 			catapult.moveVoltage(12000);
 		}

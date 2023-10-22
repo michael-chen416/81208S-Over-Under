@@ -2,10 +2,10 @@
 bool counter = true;
 
 void updatePneumatics(){
-    if(leftButton.changedToPressed()){
+    if(leftButton.changedToPressed() || r2.changedToPressed()){
         toggleLeftWing();
     }
-    if(rightButton.changedToPressed()){
+    if(rightButton.changedToPressed() || r2.changedToPressed()){
         toggleRightWing();
     }
     if(XButton.changedToPressed()){
