@@ -56,21 +56,12 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() { 
-		motion_profile motionProfile; // 1  0.2,0,0.005
-		//motionProfile.moveDistance(78, 0, 1,{0.05, 0, 0.01}, {40, 0.1, 0.3, 3}); 
-		
-		/*
-		movement profile = {0.05, 0, 0.01}
-		rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90 deg
-		*/
-		
-		// rotationTurn(45, 8000, 0.5, 6000, {0.0275, 0, 0.02});
-
+		motion_profile motionProfile;
+		// movement profile = {0.05, 0, 0.01}
+		// rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90, 45 deg
 		closeSide();
 		
 		pros::lcd::print(2, "IMU: %f" , getIMU());
-
-	 //void motion_profile::moveDistance(double distance, double direction, double offset, PIDvalues values, MotionData Data){
 }
 
 /**
@@ -97,6 +88,7 @@ void opcontrol()
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
+		
 		//toggle
 		if(YButton.changedToPressed()){
 			if(skills == false) {
