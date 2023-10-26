@@ -1,6 +1,6 @@
 #include "main.h"
 int autonNumber = 0;
-bool skills = false; //false for regular matches, true for skills
+bool skills = false; // haha this doesn't matter!
 int catapos = 1180;
 uint32_t lastPressed = -800;
 /**
@@ -17,13 +17,19 @@ void on_center_button() {}
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
-void initialize() {
+void initialize()
+{
 	pros::lcd::initialize();
-	//pros::lcd::set_text(1, "81208S code ");
+	// display data and whatnot
+	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
+	pros::lcd::print(2, "Yaw: %f", getIMU());
+	pros::lcd::print(3, "Left current: %f", getAverageLeftRotation());
+	pros::lcd::print(4, "Right current: %f", getAverageRightRotation());
+	pros::lcd::print(5, "Distance remaining: %f", distanceRemaining);
+	pros::lcd::print(6, "Distance traveled: %f", distanceTraveled);
 
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-	
 }
 
 /**
@@ -55,13 +61,12 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() { 
-		motion_profile motionProfile;
-		// movement profile = {0.05, 0, 0.01}
-		// rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90, 45 deg
-		closeSide();
-		
-		pros::lcd::print(2, "IMU: %f" , getIMU());
+void autonomous()
+{
+	motion_profile motionProfile;
+	closeWinPoint();
+
+	pros::lcd::print(2, "IMU: %f", getIMU());
 }
 
 /**
@@ -84,26 +89,29 @@ void opcontrol()
 
 	while (true)
 	{
-		pros::lcd::print(5, "potentiometer value: %f", potentiometer.get());
+
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
-		
-		//toggle
-		if(YButton.changedToPressed()){
-			if(skills == false) {
+
+		// toggle
+		if (YButton.changedToPressed())
+		{
+			if (skills == false)
+			{
 				skills = true;
 				catapos = 1100;
-			} else {
+			}
+			else
+			{
 				skills = false;
 				catapos = 1180;
 			}
 		}
 
-		//Catapult code because the catapult file doesn't work unfortunately.
-		//Down Pos: 1180 reg match : 1100 skills
-		if (potentiometer.get() < catapos) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
-		{ 
+		// Down Pos: 1180 reg match : 1100 skills
+		if (potentiometer.get() < catapos) // NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		{
 			catapult.moveVoltage(12000);
 		}
 		else if (fire.changedToPressed())

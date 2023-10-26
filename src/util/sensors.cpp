@@ -17,7 +17,7 @@ double getIMU(){
  * @return double 
  */
 double getAverageLeftRotation(){
-    return (lf.getPosition() + lb.getPosition())/2;
+    return (lf.getPosition() + lb.getPosition() + lt.getPosition())/3;
 }
 
 /**
@@ -26,5 +26,5 @@ double getAverageLeftRotation(){
  * @return double 
  */
 double getAverageRightRotation(){
-    return (rf.getPosition() + rb.getPosition())/2;
+    return (rf.getPosition() + rb.getPosition() + rt.getPosition())/3;
 }

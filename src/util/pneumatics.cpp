@@ -1,127 +1,155 @@
 #include "main.h"
 bool counter = true;
 
-void updatePneumatics(){
-    if(leftButton.changedToPressed() || r2.changedToPressed()){
+void updatePneumatics()
+{
+    if (leftButton.changedToPressed() || r2.changedToPressed())
+    {
         toggleLeftWing();
     }
-    if(rightButton.changedToPressed() || r2.changedToPressed()){
+    if (rightButton.changedToPressed() || r2.changedToPressed())
+    {
         toggleRightWing();
     }
-    if(XButton.changedToPressed()){
+    if (XButton.changedToPressed())
+    {
         toggleArm();
     }
-    if(BButton.changedToPressed()){
+    if (BButton.changedToPressed())
+    {
         toggleMatchLoad();
     }
-
 }
 
 /**
  * @brief opens the wing
- * 
+ *
  */
-void openLeftWing() {
+void openLeftWing()
+{
     leftWing.set_value(true);
     leftWingState = true;
 }
 
 /**
  * @brief opens the wing
- * 
+ *
  */
-void openRightWing(){
+void openRightWing()
+{
     rightWing.set_value(true);
     rightWingState = true;
 }
 
 /**
  * @brief closes the wing
- * 
+ *
  */
-void closeLeftWing() {
+void closeLeftWing()
+{
     leftWing.set_value(false);
     leftWingState = false;
 }
 
 /**
  * @brief closes the wing
- * 
+ *
  */
-void closeRightWing(){
+void closeRightWing()
+{
     rightWing.set_value(false);
     rightWingState = false;
 }
 
 /**
  * @brief toggles the wing
- * 
+ *
  */
-void toggleLeftWing(){
-    if(leftWingState == false) {
+void toggleLeftWing()
+{
+    if (leftWingState == false)
+    {
         openLeftWing();
-    } else {
+    }
+    else
+    {
         closeLeftWing();
     }
 }
 
 /**
  * @brief toggles the wing
- * 
+ *
  */
 
-void toggleRightWing(){
-    if(rightWingState == false){
+void toggleRightWing()
+{
+    if (rightWingState == false)
+    {
         openRightWing();
-    } else {
+    }
+    else
+    {
         closeRightWing();
     }
 }
 
 /**
  * @brief extends the arm
- * 
+ *
  */
-void extendArm() {
+void extendArm()
+{
     hangMech.set_value(true);
     climbingState = true;
 }
 
 /**
  * @brief retracts the arm
- * 
+ *
  */
-void retractArm() {
+void retractArm()
+{
     hangMech.set_value(false);
     climbingState = false;
 }
 
-void toggleArm(){
-    if(climbingState == false){
+void toggleArm()
+{
+    if (climbingState == false)
+    {
         extendArm();
-    } else {
+    }
+    else
+    {
         retractArm();
     }
 }
 
 /**
  * @brief toggles arm state
- * 
+ *
  */
-void extendMatchload(){
+void extendMatchload()
+{
     matchloadBar.set_value(true);
     matchloadState = true;
 }
 
-void retractMatchload(){
+void retractMatchload()
+{
     matchloadBar.set_value(false);
     matchloadState = false;
 }
 
-void toggleMatchLoad(){
-    if(matchloadState == false){
+void toggleMatchLoad()
+{
+    if (matchloadState == false)
+    {
         extendMatchload();
-    } else {
+    }
+    else
+    {
         retractMatchload();
     }
 }
