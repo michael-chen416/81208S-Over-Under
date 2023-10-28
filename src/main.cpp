@@ -20,7 +20,7 @@ void on_center_button() {}
 void initialize() {
 	pros::lcd::initialize();
 	//pros::lcd::set_text(1, "81208S code ");
-
+	
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
 	
@@ -60,7 +60,17 @@ void autonomous() {
 		// movement profile = {0.05, 0, 0.01}
 		// rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90, 45 deg
 		// closeSide();
-		experimental();
+		//experimental();
+
+		 rotationTurn(90, 7200, 6, 5500, {0.01, 0, 0.02});
+		 pros::delay(500);
+		  rotationTurn(0, 7200, 6, 5500, {0.01, 0, 0.02});
+		  pros::delay(500);
+		   rotationTurn(-45, 7200, 6, 5500, {0.01, 0, 0.02});
+		   pros::delay(500);
+		    rotationTurn(145, 7200, 6, 5500, {0.01, 0, 0.02});
+			pros::delay(500);
+			 rotationTurn(200, 7200, 6, 5500, {0.01, 0, 0.02});
 		
 		pros::lcd::print(2, "IMU: %f" , getIMU());
 }
@@ -103,7 +113,8 @@ void opcontrol()
 
 		//Catapult code because the catapult file doesn't work unfortunately.
 		//Down Pos: 1180 reg match : 1100 skills
-		if (potentiometer.get() < 1100) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		//new bottom: 1322
+		if (potentiometer.get() < 1200) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
 		{ 
 			catapult.moveVoltage(12000);
 		}
@@ -111,6 +122,8 @@ void opcontrol()
 		{
 			lastPressed = pros::millis();
 			catapult.moveRelative(1000, 12000);
+			pros::delay(160);
+			catapult.moveVoltage(0);
 		}
 		else if (pros::millis() - lastPressed > 350 && fire.isPressed())
 		{

@@ -4,6 +4,7 @@ extern bool leftWingState;
 extern bool rightWingState;
 extern bool matchloadState;
 extern bool climbingState;
+extern double angleOffset;
 
 // Controller
 extern okapi::Controller controller;

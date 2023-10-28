@@ -4,6 +4,7 @@ bool leftWingState = false;
 bool rightWingState = false;
 bool matchloadState = false;
 bool climbingState = false;
+double angleOffset = 0;
 
 // Controller
 okapi::Controller controller(okapi::ControllerId::master);
@@ -48,7 +49,7 @@ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 
 
 // Auton
-/* Gyro */pros::Imu gyro(16);
+/* Gyro */pros::Imu gyro(15);
 
 //Pneumatics
 pros::ADIDigitalOut rightWing('A',LOW); // change these values later
