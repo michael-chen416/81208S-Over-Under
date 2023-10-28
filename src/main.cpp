@@ -59,7 +59,8 @@ void autonomous() {
 		motion_profile motionProfile;
 		// movement profile = {0.05, 0, 0.01}
 		// rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90, 45 deg
-		closeSide();
+		// closeSide();
+		experimental();
 		
 		pros::lcd::print(2, "IMU: %f" , getIMU());
 }
@@ -102,7 +103,7 @@ void opcontrol()
 
 		//Catapult code because the catapult file doesn't work unfortunately.
 		//Down Pos: 1180 reg match : 1100 skills
-		if (potentiometer.get() < catapos) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		if (potentiometer.get() < 1100) // catapult automatically goes down to the down position. NOTICE: there is quite a big delay, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
 		{ 
 			catapult.moveVoltage(12000);
 		}
