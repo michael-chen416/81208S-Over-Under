@@ -4,12 +4,6 @@ void moveLeftGroup(double power){
         driveLeftGroup.moveVoltage(power);
 }
 
-/**
- * @brief drives the right drive train, adjusts for 4m or 6m depending on pto state
- * 
- * @param power millivolts from -12000 to 12000
- */
-
 void moveRightGroup(double power){
         driveRightGroup.moveVoltage(power);
 }

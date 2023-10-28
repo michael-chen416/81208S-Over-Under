@@ -1,6 +1,8 @@
-void winPointAuton();
+void closeWinPoint();
+void farWinPoint();
 void closeSide();
-void experimental();
+void farSide();
+void skills();
 // void startIntake();
 // void stopIntake();
 // void reverseIntake();
