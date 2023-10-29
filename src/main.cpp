@@ -1,6 +1,6 @@
 #include "main.h"
 int autonNumber = 0;
-bool skills = false; // haha this doesn't matter!
+// bool skills = false; // haha this doesn't matter!
 int catapos = 1180;
 uint32_t lastPressed = -800;
 /**
@@ -25,8 +25,8 @@ void initialize()
 	pros::lcd::print(2, "Yaw: %f", getIMU());
 	pros::lcd::print(3, "Left current: %f", getAverageLeftRotation());
 	pros::lcd::print(4, "Right current: %f", getAverageRightRotation());
-	pros::lcd::print(5, "Distance remaining: %f", distanceRemaining);
-	pros::lcd::print(6, "Distance traveled: %f", distanceTraveled);
+	// pros::lcd::print(5, "Distance remaining: %f", distanceRemaining);
+	// pros::lcd::print(6, "Distance traveled: %f", distanceTraveled);
 
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
@@ -64,7 +64,7 @@ void competition_initialize() {}
 void autonomous()
 {
 	motion_profile motionProfile;
-	closeWinPoint();
+	farSide();
 
 	pros::lcd::print(2, "IMU: %f", getIMU());
 }
@@ -97,16 +97,16 @@ void opcontrol()
 		// toggle
 		if (YButton.changedToPressed())
 		{
-			if (skills == false)
-			{
-				skills = true;
-				catapos = 1100;
-			}
-			else
-			{
-				skills = false;
-				catapos = 1180;
-			}
+			// if (skills == false)
+			// {
+			// 	skills = true;
+			// 	catapos = 1100;
+			// }
+			// else
+			// {
+			// 	skills = false;
+			// 	catapos = 1180;
+			// }
 		}
 
 		// Down Pos: 1180 reg match : 1100 skills

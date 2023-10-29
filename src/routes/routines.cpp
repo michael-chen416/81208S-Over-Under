@@ -58,7 +58,7 @@ void closeSide(){
     // rotationTurn(100, 8000, 0.5, 6000, {0.0275, 0, 0.02});
 }
 
-void experimental(){
+void farSide(){
     motion_profile motionProfile;
     /*
     movement profile = {0.05, 0, 0.01}
@@ -100,7 +100,7 @@ void experimental(){
     // pros::delay(3000);
     // 131
     // angleOffset = 132;
-    rotationTurn(245, 7200, 6, 5500, {0.01, 0, 0.02});
+    rotationTurn(245, 7200, 1, 5500, {0.01, 0, 0.02});
     // -131
     // pros::delay(3000);
     // motionProfile.moveDistance(28, 260, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3}, 700);
