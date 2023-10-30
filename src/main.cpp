@@ -65,8 +65,15 @@ void autonomous()
 {
 	motion_profile motionProfile;
 	farSide();
-
-	pros::lcd::print(2, "IMU: %f", getIMU());
+ 	//rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); //.0175, 0, 0.02
+	// rotationTurn(90, 8000, 1, 1200, {0.019, 0, 0.08});
+    //   pros::delay(3000);
+    // rotationTurn(135, 8000, 0.5, 1200, {0.019, 0, 0.08});
+    //   pros::delay(3000);
+  	// rotationTurn(70, 8000, 0.5, 1200, {0.019, 0, 0.08});
+    // 	pros::delay(3000);
+ 	// rotationTurn(-20, 8000, 0.5, 1200, {0.019, 0, 0.08});
+	// pros::lcd::print(2, "IMU: %f", getIMU());
 }
 
 /**

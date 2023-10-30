@@ -86,6 +86,34 @@ void farSide(){
 //     pros::delay(3000);
 // rotationTurn(-20, 8000, 0.5, 1200, {0.015, 0, 0.02});
 
+    motionProfile.moveDistance(-3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
+    rotationTurn(95, 8000, 1, 1200, {0.02, 0, 0.08});
+    motionProfile.moveDistance(14, 95, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(132, 8000, 1, 1200, {0.02, 0, 0.08});
+    intake.moveVoltage(-12000);
+    pros::delay(1000);
+    intake.moveVoltage(0);
+    motionProfile.moveDistance(8, 132, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});//no greater than 9 no less than 8.5
+    motionProfile.moveDistance(-15, 132, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    //extend matchload bar here!
+    // 131
+    // angleOffset = 132;
+    // rotationTurn(245, 7200, 1, 5500, {0.01, 0, 0.02});
+    // -131
+    rotationTurn(180, 8000, 1, 1200, {0.02, 0, 0.08});
+    driveLeftGroup.moveVoltage(8000);
+    driveRightGroup.moveVoltage(-8000);
+    pros::delay(200);
+    driveLeftGroup.moveVoltage(0);
+    driveRightGroup.moveVoltage(0);
+    pros::delay(1500);
+    rotationTurn(-95, 8000, 1, 1500, {0.02, 0, 0.08});
+    motionProfile.moveDistance(17, -95, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    rotationTurn(-130, 8000, 1, 1500, {0.02, 0, 0.08});
+    motionProfile.moveDistance(40, -130, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    // pros::delay(2000);
+    
+    //old
     // motionProfile.moveDistance(-3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
     // pros::delay(10);
     // rotationTurn(95, 8000, 0.5, 1200, {0.0175, 0, 0.02});
@@ -98,15 +126,14 @@ void farSide(){
     // motionProfile.moveDistance(-15, 132, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     // //extend matchload bar here!
     // pros::delay(3000);
-    // 131
-    // angleOffset = 132;
-    rotationTurn(245, 7200, 1, 5500, {0.01, 0, 0.02});
-    // -131
+    // // 131
+    // // angleOffset = 132;
+    // // rotationTurn(245, 7200, 1, 5500, {0.01, 0, 0.02});
+    // // -131
     // pros::delay(3000);
     // motionProfile.moveDistance(28, 260, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3}, 700);
     // pros::delay(10000);
     // rotationTurn(225, 8000, 0.5, 7000, {0.0275, 0, 0.02});
     // pros::delay(2000);
     // motionProfile.moveDistance(35, 225, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    // pros::delay(2000);
 }
