@@ -5,6 +5,50 @@
 void closeWinPoint(){
     motion_profile motionProfile;
     
+    motionProfile.moveDistance(3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
+    pros::delay(500);
+    rotationTurn(72, 8000, 1, 1200, {0.02, 0, 0.08});
+    pros::delay(500);
+    motionProfile.moveDistance(17.5, 72, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    pros::delay(500);
+    rotationTurn(45, 8000, 1, 1200, {0.02, 0, 0.08});
+    intake.moveVoltage(-12000);
+    pros::delay(1000);
+    motionProfile.moveDistance(12.5, 45, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});
+    intake.moveVoltage(0);
+    // pros::delay(500);
+    motionProfile.moveDistance(-15.5, 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // pros::delay(500);
+    rotationTurn(-22, 8000, 1, 1200, {0.02, 0, 0.08});
+    // pros::delay(500);
+    motionProfile.moveDistance(45, -22, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    intake.moveVoltage(12000);
+    pros::delay(500);
+    intake.moveVoltage(0);
+    rotationTurn(92, 8000, 1, 1200, {0.02, 0, 0.08});
+    // pros::delay(500);
+    motionProfile.moveDistance(3, 92, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
+    intake.moveVoltage(-12000);
+    pros::delay(500);
+    intake.moveVoltage(0);
+    rotationTurn(20, 8000, 1, 1200, {0.02, 0, 0.08});
+    // pros::delay(500);
+    intake.moveVoltage(12000);
+    motionProfile.moveDistance(26, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // pros::delay(500);
+    intake.moveVoltage(0);
+    rotationTurn(135, 8000, 1, 1200, {0.02, 0, 0.08});
+    // pros::delay(500);
+    intake.moveVoltage(-12000);
+    motionProfile.moveDistance(25, 135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // pros::delay(500);
+    intake.moveVoltage(0);
+    motionProfile.moveDistance(-16, 135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    toggleLeftWing();
+    toggleRightWing();
+
+
+    /* old doesnt work
     //getting matchload ball out + aligning with side 
     motionProfile.moveDistance(10, 0, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
     extendMatchload();
@@ -36,6 +80,7 @@ void closeWinPoint(){
     rotationTurn(-45, 8000, 0.5, 6000, {0.0275, 0, 0.02});
     pros::delay(500);
     motionProfile.moveDistance(20, -80, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    */
 }
 
 void farWinPoint(){
@@ -93,8 +138,8 @@ void farSide(){
     intake.moveVoltage(-12000);
     pros::delay(1000);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(8, 132, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});//no greater than 9 no less than 8.5
-    motionProfile.moveDistance(-15, 132, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(9, 132, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});//no greater than 9 no less than 8.5
+    motionProfile.moveDistance(-16, 132, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     //extend matchload bar here!
     // 131
     // angleOffset = 132;
@@ -108,9 +153,9 @@ void farSide(){
     driveRightGroup.moveVoltage(0);
     pros::delay(1500);
     rotationTurn(-95, 8000, 1, 1500, {0.02, 0, 0.08});
-    motionProfile.moveDistance(17, -95, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    rotationTurn(-130, 8000, 1, 1500, {0.02, 0, 0.08});
-    motionProfile.moveDistance(40, -130, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    motionProfile.moveDistance(15.5, -95, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    rotationTurn(-135, 8000, 1, 1500, {0.02, 0, 0.08});
+    motionProfile.moveDistance(40, -135, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
     // pros::delay(2000);
     
     //old
