@@ -1,4 +1,3 @@
-void closeWinPoint();
 void farWinPoint();
 void closeSide();
 void farSide();

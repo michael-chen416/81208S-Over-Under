@@ -113,7 +113,10 @@ void retractArm()
     hangMech.set_value(false);
     climbingState = false;
 }
-
+/**
+ * @brief toggle the arm
+ *
+ */
 void toggleArm()
 {
     if (climbingState == false)
@@ -127,7 +130,7 @@ void toggleArm()
 }
 
 /**
- * @brief toggles arm state
+ * @brief extend matchload
  *
  */
 void extendMatchload()
@@ -135,13 +138,19 @@ void extendMatchload()
     matchloadBar.set_value(true);
     matchloadState = true;
 }
-
+/**
+ * @brief retract matchload
+ *
+ */
 void retractMatchload()
 {
     matchloadBar.set_value(false);
     matchloadState = false;
 }
-
+/**
+ * @brief toggle matchload
+ *
+ */
 void toggleMatchLoad()
 {
     if (matchloadState == false)

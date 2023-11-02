@@ -2,14 +2,21 @@
 // movement profile = {0.05, 0, 0.01}
 // rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90 deg
 
-void closeWinPoint(){
+
+void farWinPoint(){
+
+}
+
+void closeSide(){
     motion_profile motionProfile;
+
+    /*--Alliance triball--*/
     
     motionProfile.moveDistance(3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
-    pros::delay(500);
+    pros::delay(250);
     rotationTurn(72, 8000, 1, 1200, {0.02, 0, 0.08});
-    pros::delay(500);
-    motionProfile.moveDistance(17.5, 72, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    pros::delay(250);
+    motionProfile.moveDistance(18, 72, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
     pros::delay(500);
     rotationTurn(45, 8000, 1, 1200, {0.02, 0, 0.08});
     intake.moveVoltage(-12000);
@@ -17,90 +24,42 @@ void closeWinPoint(){
     motionProfile.moveDistance(12.5, 45, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});
     intake.moveVoltage(0);
     // pros::delay(500);
-    motionProfile.moveDistance(-15.5, 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(-15, 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+
+    /*--Additional triballs--*/ 
+
     // pros::delay(500);
     rotationTurn(-22, 8000, 1, 1200, {0.02, 0, 0.08});
     // pros::delay(500);
     motionProfile.moveDistance(45, -22, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     intake.moveVoltage(12000);
     pros::delay(500);
-    intake.moveVoltage(0);
+    intake.moveVoltage(0); // first triball
     rotationTurn(92, 8000, 1, 1200, {0.02, 0, 0.08});
-    // pros::delay(500);
+    pros::delay(250);
+    intake.moveVoltage(-12000);
+    pros::delay(250);
+    intake.moveVoltage(0);
     motionProfile.moveDistance(3, 92, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
-    intake.moveVoltage(-12000);
-    pros::delay(500);
-    intake.moveVoltage(0);
     rotationTurn(20, 8000, 1, 1200, {0.02, 0, 0.08});
-    // pros::delay(500);
+    pros::delay(250);
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(26, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    // pros::delay(500);
+    motionProfile.moveDistance(24, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    pros::delay(250);
     intake.moveVoltage(0);
+    // pros::delay(500);
     rotationTurn(135, 8000, 1, 1200, {0.02, 0, 0.08});
+    toggleLeftWing(); //open wings
+    toggleRightWing();
     // pros::delay(500);
     intake.moveVoltage(-12000);
-    motionProfile.moveDistance(25, 135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(27, 135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); // pushing the triball
     // pros::delay(500);
     intake.moveVoltage(0);
     motionProfile.moveDistance(-16, 135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     toggleLeftWing();
     toggleRightWing();
 
-
-    /* old doesnt work
-    //getting matchload ball out + aligning with side 
-    motionProfile.moveDistance(10, 0, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    extendMatchload();
-    pros::delay(1000);
-    motionProfile.moveDistance(-5, 0, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    pros::delay(1000);
-	rotationTurn(80, 8000, 0.5, 6000, {0.0275, 0, 0.02});
-    pros::delay(1000);
-    retractMatchload();
-    motionProfile.moveDistance(22, 80, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    pros::delay(500);
-    //putting alliance triball in net
-    rotationTurn(45, 8000, 0.5, 6000, {0.0275, 0, 0.02});
-    motionProfile.moveDistance(-3, 45, 1, {0.05, 0, 0.05}, {40, 0.1, 0.3, 3});
-    intake.moveVoltage(-12000); 
-    pros::delay(500);
-    rotationTurn(-90, 8000, 0.5, 6000, {0.0275, 0, 0.02}); //turns around to push the triball into the net
-    pros::delay(500);
-    motionProfile.moveDistance(-5, 45, 1, {0.05, 0, 0.05}, {40, 0.1, 0.3, 3});
-    pros::delay(1000);
-    motionProfile.moveDistance(5, 45, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    pros::delay(1000);
-    //getting alliance triball in the goal
-    rotationTurn(-80, 8000, 0.5, 6000, {0.0275, 0, 0.02});
-    
-    pros::delay(500);
-    motionProfile.moveDistance(25, -80, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    pros::delay(500);
-    rotationTurn(-45, 8000, 0.5, 6000, {0.0275, 0, 0.02});
-    pros::delay(500);
-    motionProfile.moveDistance(20, -80, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    */
-}
-
-void farWinPoint(){
-
-}
-
-void closeSide(){
-    // intake.moveVoltage(12000);
-    // motionProfile.moveDistance(55, 0, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-
-    // pros::delay(1000);
-    // intake.moveVoltage(0);
-    // rotationTurn(110, 8000, 0.5, 6000, {0.0275, 0, 0.02});
-    // intake.moveVelocity(-12000);
-    // pros::delay(1000);
-    // intake.moveVelocity(12000);
-    // rotationTurn(-150, 8000, 0.5, 6000, {0.0275, 0, 0.02});
-    // motionProfile.moveDistance(20, 0, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    // pros::delay(1000);
-    // rotationTurn(100, 8000, 0.5, 6000, {0.0275, 0, 0.02});
 }
 
 void farSide(){
@@ -181,4 +140,9 @@ void farSide(){
     // rotationTurn(225, 8000, 0.5, 7000, {0.0275, 0, 0.02});
     // pros::delay(2000);
     // motionProfile.moveDistance(35, 225, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+}
+
+void skills(){
+    // movement profile = {0.05, 0, 0.01}
+    //rotation turn 8000, 0.5, 6000, {0.02, 0, 0.08} 90 deg
 }
