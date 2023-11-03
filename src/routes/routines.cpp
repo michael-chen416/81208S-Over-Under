@@ -144,6 +144,41 @@ void farSideShort(){
 
 
 void farSideLong(){
+    motion_profile motionProfile;
+    motionProfile.moveDistance(-3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
+    rotationTurn(90.5, 8000, 1, 1200, {0.02, 0, 0.08});
+    motionProfile.moveDistance(17.75, 90.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
+    pros::delay(250);
+    rotationTurn(133, 8000, 1, 1200, {0.02, 0, 0.08});
+    intake.moveVoltage(-12000);
+    pros::delay(500);
+    motionProfile.moveDistance(10.5, 133, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});//no greater than 9 no less than 8.5
+    motionProfile.moveDistance(-15.5, 133, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    
+    intake.moveVoltage(0);
+    toggleMatchLoad();
+    pros::delay(5000);
+    // 131
+    // angleOffset = 132;
+    // rotationTurn(245, 7200, 1, 5500, {0.01, 0, 0.02});
+    // -131
+    rotationTurn(180, 8000, 1, 1000, {0.02, 0, 0.08});
+    driveLeftGroup.moveVoltage(8000);
+    driveRightGroup.moveVoltage(-8000);
+    pros::delay(200);
+    driveLeftGroup.moveVoltage(0);
+    driveRightGroup.moveVoltage(0);
+    motionProfile.moveDistance(4, -135, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    rotationTurn(45, 8000, 1, 1500, {0.02, 0, 0.08});
+    intake.moveVoltage(12000);
+    motionProfile.moveDistance(4, -135, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    pros::delay(1500);
+    intake.moveVoltage(0);
+    rotationTurn(-95, 8000, 1, 1500, {0.02, 0, 0.08});
+    motionProfile.moveDistance(15.5, -95, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    rotationTurn(-135, 8000, 1, 1500, {0.02, 0, 0.08});
+    intake.moveVoltage(-12000);
+    motionProfile.moveDistance(30, -135, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
 
 }
 
