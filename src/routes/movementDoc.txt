@@ -3,9 +3,9 @@ MOVEDISTANCE
         motion_profile motionProfile; //creates the class that controls all future movements that require motion profiling
 
         PIDvalues profilePID; //holds the PID values for adjusting heading during motion profiling, can be reused in the future
-        profilePID.kp = 0.03;
+        profilePID.kp = 0.02;
         profilePID.ki = 0;
-        profilePID.kd = 0.08;
+        profilePID.kd = 0.04;
 
         MotionData profileData; //holds the profile data for adjusting speed thoughout the profile, names should be self-explanatory
         profileData.accelTime = 0.1; //in seconds
@@ -21,9 +21,9 @@ MOVEDISTANCE
 TURNING
     TYPE 1 - rotationTurn //turns on the spot using both wheels
         PIDvalues turnPID;
-        turnPID.kp = 0.019;
+        turnPID.kp = 0.02;
         turnPID.ki = 0;
-        turnPID.kd = 0.04;
+        turnPID.kd = 0.08;
         rotationTurn(90, 8000, 0.5, 1000, turnPID); //this turns 90 degrees, pushing a max of 8000 millivolts to motor, with .5 degrees of tolerance, can use upto 1000 milliseconds to complete the function, and uses the predetermined PID values
 
         rotationTurn(90, 8000, 0.5, 1000, {0.019, 0, 0.04}); //this does the same thing as the function above, but defines the PID values within the method call
@@ -39,7 +39,14 @@ TURNING
         pivotTurn(90, 8000, 0.5, 2400, false, {0.019, 0, 0.04}); //this shares the first 4 values of the previous pivot example, but false means it uses the right wheel, and it defines the PID values within the method call instead of using preexisting ones 
 
 
-    TYPE 3 - travelTurn Not present in this version, don't use this.
+    TYPE 3 - travelTurn //travels a distance while slowly adjusting the angle - this one is very inconsistent for some reason
+        PIDvalues turnPID;
+        turnPID.kp = 0.019;
+        turnPID.ki = 0;
+        turnPID.kd = 0.04;
+        travelTurn(24, 6000, 45, 3000, 0.5, 2400, turnPID); //this travels 24 inches, pushes 6000 millivolts forward, has a heading target of 45 degrees, pushes 3000 millivolts into turning, has a degree tolerance of 0.5, has a timeout of 2400 milliseconds, and uses pre existing PID values
+        
+        travelTurn(24, 6000, 45, 3000, 0.5, 2400, {0.019, 0, 0.04}); //this does the same thing as the previous function, but creates its own PID values within the method call
 
 ODOMETRY STANDARD USAGE
     Odometry is automatically started in auton

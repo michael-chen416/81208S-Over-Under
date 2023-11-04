@@ -1,0 +1,45 @@
+PID TUNING
+Step 1: P (proportional)
+    Start with a P value of approximately 0.1
+    If the robot shakes while completing the task, begin reducing P value by approx. 10% each time, use your own judgement but 10% is ok 
+    If the robot struggles to maintain the path, increase the P value by approx 20% each time 
+
+Step 2: D (derivative)
+    Start with a D value that is double of the P value
+    If the robot spends too much time adjusting to target, decrease D by about 50%
+    If the effect isn't noticable enough, increase D by about 10%
+
+Step 3: I (integral)
+    Good luck lmao
+    imagine it as something that pushes it past a very small error
+    try not to use it
+
+Step 4: Timeout
+    If you don't have time to properly tune, your PID function might never reach your target
+    However I am a benevolent programmer and have created a timeout, where it exits the loop after "x" milliseconds have elapsed
+    To access timeout, you have to overload for MP profiling, its built into turning functions
+
+Step 5: Tolerance
+    I am stupid it does not work properly
+    Therefore, consider using a 1.0 to 5.0 inch tolerance 
+
+
+MP TUNING
+Step 1: MAX_VEL
+    Use your judgement and think about how fast the robot should travel at max speed
+    Usually this will be about 40-80 inches/second for long distance, maybe 20 for short distance
+    
+Step 2: MIN_VEL
+    Minimum velocity should always be less than 3 inches/second
+    If MIN_VEL = MAX_VEL, you have no acceleration/deceleration, which is the single edge case wehre MIN_VEL can be higher than 3
+
+Step 3: DECEL_TIME
+    Decel time should scale quadratically againt max velocity, check movement doc for an example of decent testing value, just don't input 0
+
+Step 4: ACCEL_TIME
+    Accel time can be whatever, just not 0
+
+Step 5: offset
+    MP is kind of weird where it always overshoots because its sort of like analog control, so we introduce an offset factor so we travel the "right" distance
+    Inside the MP function it shortens the target distance by offset
+    You kind of don't really need offset for most cases, but it should be used if you travel at like 60+ inch/s
