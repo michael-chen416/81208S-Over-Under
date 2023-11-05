@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "81208Special",
+    "project_name": "81208S",
     "target": "v5",
     "templates": {
       "kernel": {
@@ -311,7 +311,7 @@
     "upload_options": {
       "description": "81208S team code",
       "slot": 1,
-      "icon": "pizza"
+      "icon": "pros"
     }
   }
 }
