@@ -64,7 +64,7 @@ void competition_initialize() {}
 void autonomous()
 {
 	motion_profile motionProfile;
-	farSideLong();
+	skills();
  	//rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); //.0175, 0, 0.02
 	// rotationTurn(90, 8000, 1, 1200, {0.019, 0, 0.08});
     //   pros::delay(3000);
@@ -93,7 +93,7 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-
+	//controller.rumble("..");
 	while (true)
 	{
 

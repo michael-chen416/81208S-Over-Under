@@ -151,38 +151,52 @@ void farSideLong(){
 void skills(){
     motion_profile motionProfile;
 
+    /*--Score alliance balls--*/
+
+    motionProfile.moveDistance(-19.5, 0, 1, {0.05, 0, 0.01}, {20, 0.01, 0.3, 3});
+    rotationTurn(23, 8000, 1, 1000, {0.02, 0, 0.08});
+    // motionProfile.moveDistance(3, 23, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});
+    driveGroup.moveVoltage(-10000);
+    pros::delay(750);
+    driveGroup.moveVoltage(0);
+    motionProfile.moveDistance(15, 23, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+
     /*--Cata 44 balls--*/
 
-    motionProfile.moveDistance(-3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // to not hit bar
-
-    rotationTurn(90.5, 8000, 1, 1200, {0.02, 0, 0.08});                         // get to goal:
-    motionProfile.moveDistance(17.75, 90.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
-    pros::delay(250);
-    rotationTurn(133, 8000, 1, 1200, {0.02, 0, 0.08});
-    intake.moveVoltage(-12000);
-    pros::delay(500);
-    motionProfile.moveDistance(10.5, 133, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30}); // pushing triball: // no greater than 9 no less than 8.5
-    motionProfile.moveDistance(-15.5, 133, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-
-    /*--Matchload ball--*/
-
-    intake.moveVoltage(0);
-    // extend matchload bar here!
+    rotationTurn(100, 8000, 1, 1000, {0.02, 0, 0.08});
+    
+    // catapult.moveVoltage(12000);
+    // pros::delay(44000);
+    // catapult.moveVoltage(0);    
     pros::delay(5000);
-    rotationTurn(180, 8000, 1, 1000, {0.02, 0, 0.08}); // get matchload out of corner:
+    motionProfile.moveDistance(-8, 100, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});    
+    rotationTurn(155, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-21, 155, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(114, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-72, 114, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-20, 77, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3});
+    rotationTurn(28, 8000, 1, 1000, {0.02, 0, 0.08});
+    driveGroup.moveVoltage(-12000);
+    pros::delay(750);
+    driveGroup.moveVoltage(0);
+    motionProfile.moveDistance(15, 28, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // driveGroup.moveVoltage(-12000);
+    // pros::delay(1000);
+    // driveGroup.moveVoltage(0);
+    // motionProfile.moveDistance(12, 28, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(150, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(36, 150, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    toggleLeftWing();
+    toggleRightWing();
+    pros::delay(5000);
+    // pivotTurn(180, 8000, 1, 1000, true, {0.02, 0, 0.08});
     driveLeftGroup.moveVoltage(8000);
-    driveRightGroup.moveVoltage(-8000);
-    pros::delay(200);
+    driveRightGroup.moveVoltage(2500);
+    pros::delay(700);
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
-    pros::delay(1500);
-
-    /*--Touch elevation bar--*/
-
-    rotationTurn(-95, 8000, 1, 1500, {0.02, 0, 0.08}); // move towards wall to get to elevation bar
-    motionProfile.moveDistance(15.5, -95, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    rotationTurn(-135, 8000, 1, 1500, {0.02, 0, 0.08}); // face to elevation bar and touch with weird ziptie thing:
-    intake.moveVoltage(-12000);
-    motionProfile.moveDistance(30, -135, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    // pros::delay(2000);
+    pros::delay(5000);
+    motionProfile.moveDistance(30, -56, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    
 }
