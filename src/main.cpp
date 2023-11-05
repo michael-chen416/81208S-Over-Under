@@ -1,7 +1,5 @@
 #include "main.h"
 int autonNumber = 0;
-// bool skills = false; // haha this doesn't matter!
-int catapos = 1180;
 uint32_t lastPressed = -800;
 /**
  * A callback function for LLEMU's center button.
@@ -96,28 +94,14 @@ void opcontrol()
 	//controller.rumble("..");
 	while (true)
 	{
-
+		//basic chassis control, do not touch.
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
 
-		// toggle
-		if (YButton.changedToPressed())
-		{
-			// if (skills == false)
-			// {
-			// 	skills = true;
-			// 	catapos = 1100;
-			// }
-			// else
-			// {
-			// 	skills = false;
-			// 	catapos = 1180;
-			// }
-		}
-
-		// Down Pos: 1180 reg match : 1100 skills
-		if (potentiometer.get() < catapos) // NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		// Down Pos: 1180 
+		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
+		if (potentiometer.get() < 1180) 
 		{
 			catapult.moveVoltage(12000);
 		}

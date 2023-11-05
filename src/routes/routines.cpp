@@ -1,6 +1,6 @@
 #include "main.h"
 // movement profile = {0.05, 0, 0.01}
-// rotation turn 8000, 0.5, 6000, {0.0275, 0, 0.02} 90 deg
+// rotation turn 8000, 0.5, 6000, {0.02, 0, 0.08} 90 deg
 
 void closeSide(){
     motion_profile motionProfile;
@@ -114,8 +114,7 @@ void farSideLong(){
     /*--Matchload ball--*/
 
     intake.moveVoltage(0);
-    toggleMatchLoad();
-    // extend matchload bar here!
+    toggleMatchLoad(); // extend matchload bar here!
     pros::delay(5000);
     rotationTurn(180, 8000, 1, 1000, {0.02, 0, 0.08}); // get matchload out of corner:
     driveLeftGroup.moveVoltage(8000);
@@ -162,13 +161,13 @@ void skills(){
     motionProfile.moveDistance(15, 23, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
 
     /*--Cata 44 balls--*/
-
     rotationTurn(100, 8000, 1, 1000, {0.02, 0, 0.08});
-    
     // catapult.moveVoltage(12000);
     // pros::delay(44000);
     // catapult.moveVoltage(0);    
-    pros::delay(5000);
+
+    /*--Push triballs in--*/
+    //pros::delay(5000); // I'm guessing that this was to somewhat simulate the launching? 
     motionProfile.moveDistance(-8, 100, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});    
     rotationTurn(155, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-21, 155, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
@@ -190,13 +189,13 @@ void skills(){
     toggleLeftWing();
     toggleRightWing();
     pros::delay(5000);
-    // pivotTurn(180, 8000, 1, 1000, true, {0.02, 0, 0.08});
+    // pivotTurn(180, 8000, 1, 1000, true, {0.02, 0, 0.08}); //pivot turn doesn't work as of right now
     driveLeftGroup.moveVoltage(8000);
     driveRightGroup.moveVoltage(2500);
     pros::delay(700);
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
     pros::delay(5000);
-    motionProfile.moveDistance(30, -56, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(30, -56, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); //w at?
     
 }
