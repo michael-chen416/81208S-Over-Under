@@ -62,8 +62,13 @@ void competition_initialize() {}
 void autonomous()
 {
 	motion_profile motionProfile;
+	// closeSide();
+	// farSideShort();
+	// farSideLong();
 	skills();
- 	//rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); //.0175, 0, 0.02
+    // rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
+
+ 	// rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); //.0175, 0, 0.02
 	// rotationTurn(90, 8000, 1, 1200, {0.019, 0, 0.08});
     //   pros::delay(3000);
     // rotationTurn(135, 8000, 0.5, 1200, {0.019, 0, 0.08});
