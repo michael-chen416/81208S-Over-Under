@@ -62,10 +62,10 @@ void competition_initialize() {}
 void autonomous()
 {
 	motion_profile motionProfile;
-	// closeSide();
-	// farSideShort();
-	// farSideLong();
-	skills();
+	closeSide();
+	//farSideShort();
+	//farSideLong();
+	//skills();
     // rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
 
  	// rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); //.0175, 0, 0.02
@@ -103,6 +103,7 @@ void opcontrol()
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
+		//opCatapult();
 
 		// Down Pos: 1180 
 		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.

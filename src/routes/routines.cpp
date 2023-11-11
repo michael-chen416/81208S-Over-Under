@@ -5,18 +5,26 @@
 void closeSide(){
     motion_profile motionProfile;
 
-    /*--Alliance triball--*/
+     /*--Deploy intake--*/
+    catapult.moveVoltage(12000);
+    pros::delay(150);
+    catapult.moveVoltage(0);
 
+    /*--Alliance triball--*/
+    pros::delay(100);
+    intake.moveVoltage(12000);
+    pros::delay(250);
+    intake.moveVoltage(0);
     motionProfile.moveDistance(3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // to not hit bar
     pros::delay(250);
     rotationTurn(72, 8000, 1, 1200, {0.02, 0, 0.08}); // get to goal:
     pros::delay(250);
     motionProfile.moveDistance(18, 72, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
     pros::delay(500);
-    rotationTurn(45, 8000, 1, 1200, {0.02, 0, 0.08}); // pushing triball:
+    rotationTurn(45, 8000, 1, 800, {0.02, 0, 0.08}); // pushing triball:
     intake.moveVoltage(-12000);
     pros::delay(1000);
-    motionProfile.moveDistance(13, 45, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});
+    motionProfile.moveDistance(13.5, 45, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});
     intake.moveVoltage(0);
     // pros::delay(500);
     motionProfile.moveDistance(-14.5, 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
@@ -28,7 +36,7 @@ void closeSide(){
     // pros::delay(500);
     motionProfile.moveDistance(46, -22, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     intake.moveVoltage(12000);
-    pros::delay(500);
+    pros::delay(400);
     motionProfile.moveDistance(-1, 90, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // get triball to goal:
     intake.moveVoltage(0);
     rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08});
@@ -59,17 +67,25 @@ void closeSide(){
 void farSideShort(){
     motion_profile motionProfile;
 
+    /*--Deploy intake--*/
+    catapult.moveVoltage(12000);
+    pros::delay(150);
+    catapult.moveVoltage(0);
+
     /*--Alliance triball--*/
 
-    motionProfile.moveDistance(-3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // to not hit bar
-    rotationTurn(90.5, 8000, 1, 1200, {0.02, 0, 0.08});                         // get to goal:
-    motionProfile.moveDistance(17.75, 90.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
+    intake.moveVoltage(12000);
+    motionProfile.moveDistance(-4, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // to not hit bar
+    rotationTurn(55, 8000, 1, 1200, {0.02, 0, 0.08});                         // get to goal: 90.5
+    motionProfile.moveDistance(7.5, 55, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});//17.75
+    intake.moveVoltage(0);
+    rotationTurn(115, 8000, 1, 1200, {0.02, 0, 0.08});                         // g133
+    motionProfile.moveDistance(14, 115, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});//17.75
     pros::delay(250);
-    rotationTurn(133, 8000, 1, 1200, {0.02, 0, 0.08});
     intake.moveVoltage(-12000);
     pros::delay(500);
     motionProfile.moveDistance(10.5, 133, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30}); // pushing triball: // no greater than 9 no less than 8.5
-    motionProfile.moveDistance(-15.5, 133, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(-16.5, 133, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
 
     /*--Matchload ball--*/
 
@@ -98,6 +114,12 @@ void farSideShort(){
 
 void farSideLong(){
     motion_profile motionProfile;
+
+    /*--Deploy intake--*/
+    catapult.moveVoltage(12000);
+    pros::delay(150);
+    catapult.moveVoltage(0);
+    
     
     /*--Alliance triball--*/
 
@@ -149,6 +171,12 @@ void farSideLong(){
 
 void skills(){
     motion_profile motionProfile;
+    
+    /*--Deploy intake--*/
+    catapult.moveVoltage(12000);
+    pros::delay(150);
+    catapult.moveVoltage(0);
+    
 
     /*--Score alliance balls--*/
 
