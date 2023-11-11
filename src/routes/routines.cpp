@@ -189,23 +189,28 @@ void skills(){
 
     /*--Cata 44 balls--*/
     
-    rotationTurn(95, 8000, 1, 1000, {0.02, 0, 0.08});
-    // catapult.moveVoltage(12000);
-    // pros::delay(44000);
-    // catapult.moveVoltage(0);    
+    rotationTurn(100, 8000, 1, 1000, {0.02, 0, 0.08});
+    pros::delay(500);
+    catapult.moveVoltage(12000);
+    pros::delay(43000);
+    catapult.moveVoltage(0);
+    //jank
+    pros::delay(250);
+    catapult.moveVoltage(12000);
+    pros::delay(550);
+    catapult.moveVoltage(0);
 
     /*--Push triballs in--*/
-
-    pros::delay(5000);
-    motionProfile.moveDistance(-8, 95, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});    
+   // pros::delay(5000);
+    motionProfile.moveDistance(-8, 100, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});    
     rotationTurn(155, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-21, 155, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(119, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-72, 119, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-20, 77, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3});
-    rotationTurn(28, 8000, 1, 1000, {0.02, 0, 0.08});
-    
+    // rotationTurn(28, 8000, 1, 1000, {0.02, 0, 0.08});
+
     rotationTurn(150, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(36, 150, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     toggleLeftWing();
@@ -218,16 +223,15 @@ void skills(){
     driveRightGroup.moveVoltage(0);
     pros::delay(5000);
     rotationTurn(-63, 8000, 1, 1000, {0.02, 0, 0.08});
-    motionProfile.moveDistance(29, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); //w at?
+    motionProfile.moveDistance(29, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});//w at?
     toggleLeftWing();
     toggleRightWing();
     pros::delay(5000);
-    motionProfile.moveDistance(-32, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); //w at?
+    motionProfile.moveDistance(-32, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); 
+    pros::delay(5000);
+    motionProfile.moveDistance(34, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); 
     toggleLeftWing();
     toggleRightWing();
-    pros::delay(5000);
-    motionProfile.moveDistance(34, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); //w at?
-    pros::delay(750);
     motionProfile.moveDistance(-16, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
 }
     // This goes on line 181.
