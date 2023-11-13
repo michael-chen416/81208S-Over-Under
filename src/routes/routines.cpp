@@ -169,7 +169,7 @@ void farSideLong(){
     
 }
 
-void skills(){
+void skills(){ // DO NOT DRY FIRE
     motion_profile motionProfile;
     
     /*--Deploy intake--*/
@@ -201,7 +201,7 @@ void skills(){
     catapult.moveVoltage(0);
 
     /*--Push triballs in--*/
-   // pros::delay(5000);
+    // pros::delay(5000);
     motionProfile.moveDistance(-8, 100, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});    
     rotationTurn(155, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-21, 155, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
@@ -209,30 +209,33 @@ void skills(){
     motionProfile.moveDistance(-72, 119, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-20, 77, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3});
-    // rotationTurn(28, 8000, 1, 1000, {0.02, 0, 0.08});
-
+    rotationTurn(28, 8000, 1, 1000, {0.02, 0, 0.08});
+    driveGroup.moveVoltage(-12000);
+    pros::delay(500);
+    driveGroup.moveVoltage(0);
+    motionProfile.moveDistance(15, 28, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(150, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(36, 150, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     toggleLeftWing();
     toggleRightWing();
-    pros::delay(5000);
+    // pros::delay(5000);
     driveLeftGroup.moveVoltage(10500);
     driveRightGroup.moveVoltage(6000);
-    pros::delay(800);
+    pros::delay(750);
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
-    pros::delay(5000);
+    // pros::delay(5000);
     rotationTurn(-63, 8000, 1, 1000, {0.02, 0, 0.08});
-    motionProfile.moveDistance(29, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});//w at?
+    motionProfile.moveDistance(32, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 2000);//w at?
     toggleLeftWing();
     toggleRightWing();
-    pros::delay(5000);
-    motionProfile.moveDistance(-32, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); 
-    pros::delay(5000);
-    motionProfile.moveDistance(34, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); 
+    // pros::delay(5000);
+    motionProfile.moveDistance(-25, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}), 2000; 
+    // pros::delay(5000);
+    motionProfile.moveDistance(28, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 2000); 
     toggleLeftWing();
     toggleRightWing();
-    motionProfile.moveDistance(-16, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(-16, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 2000);
 }
     // This goes on line 181.
     // driveGroup.moveVoltage(-12000);
