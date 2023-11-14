@@ -194,10 +194,10 @@ void skills(){ // DO NOT DRY FIRE
     catapult.moveVoltage(12000);
     pros::delay(43000);
     catapult.moveVoltage(0);
-    //jank
+    //jank this shit has like a 50% of working LOL
     pros::delay(250);
     catapult.moveVoltage(12000);
-    pros::delay(550);
+    pros::delay(400);
     catapult.moveVoltage(0);
 
     /*--Push triballs in--*/
@@ -209,26 +209,26 @@ void skills(){ // DO NOT DRY FIRE
     motionProfile.moveDistance(-72, 119, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(-20, 77, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3});
+    //SDE PuSHinG AHAHJDNLKSDSAHHDASSDjkADnjaDjk
     rotationTurn(28, 8000, 1, 1000, {0.02, 0, 0.08});
-    driveGroup.moveVoltage(-12000);
-    pros::delay(500);
-    driveGroup.moveVoltage(0);
-    motionProfile.moveDistance(15, 28, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // driveGroup.moveVoltage(-12000);
+    // pros::delay(500);
+    // driveGroup.moveVoltage(0);
+    // motionProfile.moveDistance(15, 28, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(150, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(36, 150, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    toggleLeftWing();
-    toggleRightWing();
     // pros::delay(5000);
+    
+    toggleRightWing();
     driveLeftGroup.moveVoltage(10500);
     driveRightGroup.moveVoltage(6000);
+    toggleLeftWing();
     pros::delay(750);
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
     // pros::delay(5000);
     rotationTurn(-63, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(32, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 2000);//w at?
-    toggleLeftWing();
-    toggleRightWing();
     // pros::delay(5000);
     motionProfile.moveDistance(-25, -63, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}), 2000; 
     // pros::delay(5000);
