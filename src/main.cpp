@@ -64,8 +64,8 @@ void autonomous()
 	motion_profile motionProfile;
 	//closeSide();
 	//farSideShort();
-	//farSideLong();
-	skills();
+	farSideLong();
+	// skills();
     // rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
 
  	// rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); //.0175, 0, 0.02
