@@ -99,15 +99,14 @@ void farSideShort(){
     rotationTurn(75, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(-12.5, 75, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(170, 8000, 1, 1200, {0.02, 0, 0.08});
-    pros::delay(5000);
-    // toggleMatchLoad();
+    toggleArm();
+    pros::delay(200);
     // extend matchload bar here!
-    motionProfile.moveDistance(-8.5, 170, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 1500);
+    motionProfile.moveDistance(-9, 170, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 1500);
     rotationTurn(75, 8000, 1, 1200, {0.02, 0, 0.08});
     pros::delay(250);
-    // toggleMatchLoad();
-    pros::delay(5000);
-    motionProfile.moveDistance(-11, 75, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    toggleArm();
+    motionProfile.moveDistance(-8, 75, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
 
     /*--Touch elevation bar--*/
 

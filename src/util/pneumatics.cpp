@@ -100,7 +100,7 @@ void toggleRightWing()
  */
 void extendArm()
 {
-    hangMech.set_value(true);
+    hangMech.set_value(false);
     climbingState = true;
 }
 
@@ -110,7 +110,7 @@ void extendArm()
  */
 void retractArm()
 {
-    hangMech.set_value(false);
+    hangMech.set_value(true);
     climbingState = false;
 }
 /**
