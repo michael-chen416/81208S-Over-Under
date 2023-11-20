@@ -62,9 +62,9 @@ void competition_initialize() {}
 void autonomous()
 {
 	motion_profile motionProfile;
-	//scoring();
+	// scoring();
 	winpointAuton();
-	//skills();
+	// skills();
 }
 
 /**
@@ -84,18 +84,18 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-	//controller.rumble("..");
+	// controller.rumble("..");
 	while (true)
 	{
-		//basic chassis control, do not touch.
+		// basic chassis control, do not touch.
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
-		//opCatapult();
+		// opCatapult();
 
-		// Down Pos: 1180 
+		// Down Pos: 1180
 		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
-		if (potentiometer.get() < 1180) 
+		if (potentiometer.get() < 1180)
 		{
 			catapult.moveVoltage(12000);
 		}
