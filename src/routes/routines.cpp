@@ -75,49 +75,50 @@ void winpointAuton()
 {
     motion_profile motionProfile;
 
+    motionProfile.moveDistance(-3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
+    pros::delay(500);
+
     /*--Deploy intake--*/
     catapult.moveVoltage(12000);
     pros::delay(200);
     catapult.moveVoltage(0);
 
     /*--Alliance triball--*/
-
     intake.moveVoltage(12000);
     pros::delay(175);
     intake.moveVoltage(0);
-    motionProfile.moveDistance(-3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
     rotationTurn(90.5, 8000, 1, 1200, {0.02, 0, 0.08});
-    motionProfile.moveDistance(17.75, 90.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(17, 90.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
     pros::delay(250); // 250
     rotationTurn(133, 8000, 1, 1200, {0.02, 0, 0.08});
     intake.moveVoltage(-12000);
     pros::delay(400); // 500
-    motionProfile.moveDistance(10.5, 133, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30}, 1000);
+    //motionProfile.moveDistance(11.5, 133, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30}, 1500);
+    driveGroup.moveVoltage(12000); 
+    pros::delay(500);
+    driveGroup.moveVoltage(0);
     motionProfile.moveDistance(-15.5, 133, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     intake.moveVoltage(0);
 
     /*--Remove Matchload triball--*/
-
     rotationTurn(75, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(-12.5, 75, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(170, 8000, 1, 1200, {0.02, 0, 0.08});
     // extend matchload bar here!
     toggleMatchLoad();
-    pros::delay(150); // 200
+    pros::delay(200);
     motionProfile.moveDistance(-9, 170, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 1500);
-    rotationTurn(75, 8000, 1, 1200, {0.02, 0, 0.08});
-    pros::delay(150);
+    pros::delay(200);
     toggleMatchLoad();
+    rotationTurn(75, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(-8, 75, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
 
     /*--Touch elevation bar--*/
-
     rotationTurn(-95, 8000, 1, 1500, {0.02, 0, 0.08});                            // move towards wall to get to elevation bar
-    motionProfile.moveDistance(4.5, -95, 1, {0.05, 0, 0.01}, {30, 0.1, 0.3, 30}); // risky, intake gets stuck
+    motionProfile.moveDistance(3.4, -95, 1, {0.05, 0, 0.01}, {30, 0.1, 0.3, 30}); // risky, intake gets stuck
     rotationTurn(-135, 8000, 1, 1500, {0.02, 0, 0.08});                           // face to elevation bar and touch with weird ziptie thing:
     intake.moveVoltage(-12000);
     motionProfile.moveDistance(26, -135, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
-    intake.moveVoltage(0);
 }
 
 void destruction()
