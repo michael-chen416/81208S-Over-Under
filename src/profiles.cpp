@@ -54,5 +54,4 @@ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 //Pneumatics
 pros::ADIDigitalOut rightWing('A',LOW); // change these values later
 pros::ADIDigitalOut leftWing('D',LOW);
-pros::ADIDigitalOut matchloadBar('B',LOW);
-pros::ADIDigitalOut hangMech('E',LOW);
+pros::ADIDigitalOut matchloadBar('E',LOW);

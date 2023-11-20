@@ -1,7 +1,4 @@
-void closeSide();
-void farSideShort();
-void farSideLong();
+void scoring();
+void winpointAuton();
 void skills();
-// void startIntake();
-// void stopIntake();
-// void reverseIntake();
+void destruction();

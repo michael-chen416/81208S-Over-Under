@@ -3,19 +3,15 @@ bool counter = true;
 
 void updatePneumatics()
 {
-    if (leftButton.changedToPressed() || r2.changedToPressed())
+    if (leftButton.changedToPressed() || r2.isPressed())
     {
         toggleLeftWing();
     }
-    if (rightButton.changedToPressed() || r2.changedToPressed())
+    if (rightButton.changedToPressed() || r2.isPressed())
     {
         toggleRightWing();
     }
-    if (XButton.changedToPressed())
-    {
-        toggleArm();
-    }
-    if (BButton.changedToPressed())
+    if (AButton.changedToPressed())
     {
         toggleMatchLoad();
     }
@@ -94,40 +90,6 @@ void toggleRightWing()
     }
 }
 
-/**
- * @brief extends the arm
- *
- */
-void extendArm()
-{
-    hangMech.set_value(false);
-    climbingState = true;
-}
-
-/**
- * @brief retracts the arm
- *
- */
-void retractArm()
-{
-    hangMech.set_value(true);
-    climbingState = false;
-}
-/**
- * @brief toggle the arm
- *
- */
-void toggleArm()
-{
-    if (climbingState == false)
-    {
-        extendArm();
-    }
-    else
-    {
-        retractArm();
-    }
-}
 
 /**
  * @brief extend matchload
@@ -135,7 +97,7 @@ void toggleArm()
  */
 void extendMatchload()
 {
-    matchloadBar.set_value(true);
+    matchloadBar.set_value(false);
     matchloadState = true;
 }
 /**
@@ -144,7 +106,7 @@ void extendMatchload()
  */
 void retractMatchload()
 {
-    matchloadBar.set_value(false);
+    matchloadBar.set_value(true);
     matchloadState = false;
 }
 /**

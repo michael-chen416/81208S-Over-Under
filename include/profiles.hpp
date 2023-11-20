@@ -54,4 +54,3 @@ extern okapi::MotorGroup driveGroup;
 extern pros::ADIDigitalOut rightWing;
 extern pros::ADIDigitalOut leftWing;
 extern pros::ADIDigitalOut matchloadBar;
-extern pros::ADIDigitalOut hangMech;

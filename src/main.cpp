@@ -1,5 +1,4 @@
 #include "main.h"
-int autonNumber = 0;
 uint32_t lastPressed = -800;
 /**
  * A callback function for LLEMU's center button.
@@ -18,7 +17,7 @@ void on_center_button() {}
 void initialize()
 {
 	pros::lcd::initialize();
-	hangMech.set_value(true);
+	matchloadBar.set_value(true); // makes it so that the matchload stick closes when the program starts
 	// display data and whatnot
 	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 	pros::lcd::print(2, "Yaw: %f", getIMU());
@@ -63,21 +62,9 @@ void competition_initialize() {}
 void autonomous()
 {
 	motion_profile motionProfile;
-	//closeSide();
-	farSideShort();
-	//farSideLong();
+	//scoring();
+	winpointAuton();
 	//skills();
-    // rotationTurn(77, 8000, 1, 1000, {0.02, 0, 0.08});
-
- 	// rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); //.0175, 0, 0.02
-	// rotationTurn(90, 8000, 1, 1200, {0.019, 0, 0.08});
-    //   pros::delay(3000);
-    // rotationTurn(135, 8000, 0.5, 1200, {0.019, 0, 0.08});
-    //   pros::delay(3000);
-  	// rotationTurn(70, 8000, 0.5, 1200, {0.019, 0, 0.08});
-    // 	pros::delay(3000);
- 	// rotationTurn(-20, 8000, 0.5, 1200, {0.019, 0, 0.08});
-	// pros::lcd::print(2, "IMU: %f", getIMU());
 }
 
 /**
