@@ -65,8 +65,8 @@ void autonomous()
 		winpointAuton();
 		break;
 	case 1:
-		pros::lcd::set_text(1, "Close side");
-		closeSide();
+		pros::lcd::set_text(1, "Scoring");
+		scoring();
 		break;
 	case 2:
 		pros::lcd::set_text(1, "Destruction");
