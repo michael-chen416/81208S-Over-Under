@@ -1,3 +1,3 @@
-void scoring();
+void closeSide();
 void winpointAuton();
 void destruction();

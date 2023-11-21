@@ -1,90 +1,90 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-/**
- * A callback function for LLEMU's center button.
- *
- * When this callback is fired, it will toggle line 2 of the LCD text between
- * "I was pressed!" and nothing.
- */
+int autonNumber = 0; // auton selector test.
+
 void on_center_button() {}
 
-/**
- * Runs initialization code. This occurs as soon as the program is started.
- *
- * All other competition modes are blocked by initialize; it is recommended
- * to keep execution time for this mode under a few seconds.
- */
 void initialize()
 {
 	pros::lcd::initialize();
-	matchloadBar.set_value(true); // makes it so that the matchload stick closes when the program starts
-	// display data and whatnot
+	matchloadBar.set_value(true);
+	gyro.reset();
 	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 	pros::lcd::print(2, "Yaw: %f", getIMU());
-	pros::lcd::print(3, "Left current: %f", getAverageLeftRotation());
-	pros::lcd::print(4, "Right current: %f", getAverageRightRotation());
-	// pros::lcd::print(5, "Distance remaining: %f", distanceRemaining);
-	// pros::lcd::print(6, "Distance traveled: %f", distanceTraveled);
-
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
+	while (potentiometer.get() < 700 || potentiometer.get() > 500) //unreliable way for having the cata automatically reset itself hopefully works lmao
+	{
+		catapult.moveVoltage(12000);
+	}
+	catapult.moveVoltage(0);
+	while(YButton.isPressed()){
+		if(XButton.isPressed()){
+			autonNumber++;
+		} else if (BButton.isPressed()){
+			autonNumber--;
+		} else{
+			//do nothing
+		}
+		if(autonNumber < 0){
+			autonNumber = 3;
+		}
+		if(autonNumber > 3){
+			autonNumber = 0;
+		}
+		switch(autonNumber){
+			case 0:
+                controller.rumble(".");
+                break;
+            case 1:
+                controller.rumble("..");
+                break;
+            case 2:
+                controller.rumble("...");
+                break;
+            case 3:
+                controller.rumble("-");
+                break;
+		}
+		
+		pros::delay(20);
+	}
 }
 
-/**
- * Runs while the robot is in the disabled state of Field Management System or
- * the VEX Competition Switch, following either autonomous or opcontrol. When
- * the robot is enabled, this task will exit.
- */
 void disabled() {}
 
-/**
- * Runs after initialize(), and before autonomous when connected to the Field
- * Management System or the VEX Competition Switch. This is intended for
- * competition-specific initialization routines, such as an autonomous selector
- * on the LCD.
- *
- * This task will exit when the robot is enabled and autonomous or opcontrol
- * starts.
- */
 void competition_initialize() {}
 
-/**
- * Runs the user autonomous code. This function will be started in its own task
- * with the default priority and stack size whenever the robot is enabled via
- * the Field Management System or the VEX Competition Switch in the autonomous
- * mode. Alternatively, this function may be called in initialize or opcontrol
- * for non-competition testing purposes.
- *
- * If the robot is disabled or communications is lost, the autonomous task
- * will be stopped. Re-enabling the robot will restart the task, not re-start it
- * from where it left off.
- */
 void autonomous()
 {
 	motion_profile motionProfile;
-	// scoring();
-	winpointAuton();
-	// skills();
+	switch (autonNumber)
+	{
+	case 0:
+		pros::lcd::set_text(1, "WinPoint_1");
+		winpointAuton();
+		break;
+	case 1:
+		pros::lcd::set_text(1, "Close side");
+		closeSide();
+		break;
+	case 2:
+		pros::lcd::set_text(1, "Destruction");
+		destruction();
+		break;
+	case 3:
+		pros::lcd::set_text(1, "SKILLS");
+		skills();
+		break;
+	}
 }
 
-/**
- * Runs the operator control code. This function will be started in its own task
- * with the default priority and stack size whenever the robot is enabled via
- * the Field Management System or the VEX Competition Switch in the operator
- * control mode.
- *
- * If no competition control is connected, this function will run immediately
- * following initialize().
- *
- * If the robot is disabled or communications is lost, the
- * operator control task will be stopped. Re-enabling the robot will restart the
- * task, not resume it from where it left off.
- */
 void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	okapi::ControllerButton fire(okapi::ControllerDigital::R1);
 	// controller.rumble("..");
+	//master.clear(); testing smth
 	while (true)
 	{
 		// basic chassis control, do not touch.
