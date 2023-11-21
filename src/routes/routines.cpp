@@ -2,7 +2,7 @@
 // movement profile = {0.05, 0, 0.01}
 // rotation turn 8000, 0.5, 6000, {0.02, 0, 0.08} 90 deg
 
-void scoring()
+void closeSide()
 {
     motion_profile motionProfile;
 
