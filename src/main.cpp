@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 0; // auton selector test.
+int autonNumber = 2; // auton selector test.
 
 void on_center_button() {}
 
@@ -13,42 +13,42 @@ void initialize()
 	pros::lcd::print(2, "Yaw: %f", getIMU());
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-	while (potentiometer.get() < 700 || potentiometer.get() > 500) //unreliable way for having the cata automatically reset itself hopefully works lmao
-	{
-		catapult.moveVoltage(12000);
-	}
-	catapult.moveVoltage(0);
-	while(YButton.isPressed()){
-		if(XButton.isPressed()){
-			autonNumber++;
-		} else if (BButton.isPressed()){
-			autonNumber--;
-		} else{
-			//do nothing
-		}
-		if(autonNumber < 0){
-			autonNumber = 3;
-		}
-		if(autonNumber > 3){
-			autonNumber = 0;
-		}
-		switch(autonNumber){
-			case 0:
-                controller.rumble(".");
-                break;
-            case 1:
-                controller.rumble("..");
-                break;
-            case 2:
-                controller.rumble("...");
-                break;
-            case 3:
-                controller.rumble("-");
-                break;
-		}
+	// while (potentiometer.get() > 700 || potentiometer.get() < 500) //unreliable way for having the cata automatically reset itself hopefully works lmao
+	// {
+	// 	catapult.moveVoltage(12000);
+	// }
+	// catapult.moveVoltage(0);
+	// while(YButton.isPressed()){
+	// 	if(XButton.isPressed()){
+	// 		autonNumber++;
+	// 	} else if (BButton.isPressed()){
+	// 		autonNumber--;
+	// 	} else{
+	// 		//do nothing
+	// 	}
+	// 	if(autonNumber < 0){
+	// 		autonNumber = 3;
+	// 	}
+	// 	if(autonNumber > 3){
+	// 		autonNumber = 0;
+	// 	}
+	// 	switch(autonNumber){
+	// 		case 0:
+    //             controller.rumble(".");
+    //             break;
+    //         case 1:
+    //             controller.rumble("..");
+    //             break;
+    //         case 2:
+    //             controller.rumble("...");
+    //             break;
+    //         case 3:
+    //             controller.rumble("-");
+    //             break;
+	// 	}
 		
-		pros::delay(20);
-	}
+	// 	pros::delay(20);
+	// }
 }
 
 void disabled() {}
