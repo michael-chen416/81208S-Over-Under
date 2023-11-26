@@ -143,21 +143,14 @@ void opcontrol()
 		if (cataToggle) {
 			catapult.moveVoltage(12000);
 		} else {
-			if (potentiometer.get() < 1180)
-			{
+			if (potentiometer.get() < 1180) {
 				catapult.moveVoltage(12000);
-			}
-			else if (fire.changedToPressed())
-			{
+			} else if (fire.changedToPressed()) {
 				lastPressed = pros::millis();
 				catapult.moveRelative(1000, 12000);
-			}
-			else if (pros::millis() - lastPressed > 350 && fire.isPressed())
-			{
+			} else if (pros::millis() - lastPressed > 350 && fire.isPressed()) {
 				catapult.moveVoltage(12000);
-			}
-			else
-			{
+			} else {
 				catapult.moveVoltage(0);
 			}
 		}
