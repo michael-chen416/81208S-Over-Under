@@ -17,3 +17,9 @@ void extendMatchload();
 void retractMatchload();
 
 void toggleMatchLoad();
+
+void extendHangMech();
+
+void retractHangMech();
+
+void toggleHangMech();

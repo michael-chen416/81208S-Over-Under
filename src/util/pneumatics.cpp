@@ -3,17 +3,21 @@ bool counter = true;
 
 void updatePneumatics()
 {
-    if (leftButton.changedToPressed() || r2.isPressed())
+    if (leftButton.changedToPressed())
     {
         toggleLeftWing();
     }
-    if (rightButton.changedToPressed() || r2.isPressed())
+    if (rightButton.changedToPressed())
     {
         toggleRightWing();
     }
     if (AButton.changedToPressed())
     {
         toggleMatchLoad();
+    }
+    if (downButton.changedToPressed())
+    {
+        toggleHangMech();
     }
 }
 
@@ -77,7 +81,6 @@ void toggleLeftWing()
  * @brief toggles the wing
  *
  */
-
 void toggleRightWing()
 {
     if (rightWingState == false)
@@ -99,6 +102,7 @@ void extendMatchload()
     matchloadBar.set_value(false);
     matchloadState = true;
 }
+
 /**
  * @brief retract matchload
  *
@@ -108,6 +112,7 @@ void retractMatchload()
     matchloadBar.set_value(true);
     matchloadState = false;
 }
+
 /**
  * @brief toggle matchload
  *
@@ -121,5 +126,42 @@ void toggleMatchLoad()
     else
     {
         retractMatchload();
+    }
+}
+
+/**
+ * @brief extend hook
+ *
+ */
+void extendHangMech()
+{
+    hangBar.set_value(false);
+    climbingState = true;
+}
+
+/**
+ * @brief retract hook
+ *
+ */
+
+void retractHangMech()
+{
+    hangBar.set_value(true);
+    climbingState = false;
+}
+
+/**
+ * @brief toggle hook
+ *
+ */
+void toggleHangMech()
+{
+    if (climbingState == false)
+    {
+        extendHangMech();
+    }
+    else
+    {
+        retractHangMech();
     }
 }

@@ -26,32 +26,33 @@ extern okapi::ControllerButton AButton;
 extern okapi::ControllerButton BButton;
 extern okapi::ControllerButton XButton;
 
-// Drivetrain 
-/* Left front */extern okapi::Motor lf;
-/* Left bottom */extern okapi::Motor lb;
-/* Left top */extern okapi::Motor lt;
-/* Right front */extern okapi::Motor rf;
-/* Right back */extern okapi::Motor rb;
-/* Right top */extern okapi::Motor rt;
+// Drivetrain
+/* Left front */ extern okapi::Motor lf;
+/* Left bottom */ extern okapi::Motor lb;
+/* Left top */ extern okapi::Motor lt;
+/* Right front */ extern okapi::Motor rf;
+/* Right back */ extern okapi::Motor rb;
+/* Right top */ extern okapi::Motor rt;
 
 // Drive motorgroups
-/* Left group */extern okapi::MotorGroup driveLeftGroup;
-/* Right group */extern okapi::MotorGroup driveRightGroup;
-extern okapi::MotorGroup driveGroup;
+/* Left group */ extern okapi::MotorGroup driveLeftGroup;
+/* Right group */ extern okapi::MotorGroup driveRightGroup;
+/* Drive group */ extern okapi::MotorGroup driveGroup;
 
-// Intake 
-/* Right intake */extern okapi::Motor ri;
-/* Left intake */extern okapi::Motor li;
-/* Intake motor group */extern okapi::MotorGroup intake;
+// Intake
+/* Right intake */ extern okapi::Motor ri;
+/* Left intake */ extern okapi::Motor li;
+/* Intake motor group */ extern okapi::MotorGroup intake;
 
 // Catapult
-/* Catapult */extern okapi::Motor catapult;
-/* Catapult potentiometer */extern okapi::Potentiometer potentiometer;
+/* Catapult */ extern okapi::Motor catapult;
+/* Catapult potentiometer */ extern okapi::Potentiometer potentiometer;
 
-// Auton 
-/* Gyro */extern pros::IMU gyro;
+// Auton
+/* Gyro */ extern pros::IMU gyro;
 
-//Pneumatics
-extern pros::ADIDigitalOut rightWing;
-extern pros::ADIDigitalOut leftWing;
-extern pros::ADIDigitalOut matchloadBar;
+// Pneumatics
+/* Right wing */ extern pros::ADIDigitalOut rightWing;
+/* Left wing */ extern pros::ADIDigitalOut leftWing;
+/* Matchload bar */ extern pros::ADIDigitalOut matchloadBar;
+/* Hang bar */ extern pros::ADIDigitalOut hangBar;

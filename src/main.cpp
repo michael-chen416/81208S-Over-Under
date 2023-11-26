@@ -15,82 +15,47 @@ void initialize()
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
 
 	/* new auton selector hope it works */
-
-	okapi::ControllerButton increment(okapi::ControllerDigital::X);
-	okapi::ControllerButton decrement(okapi::ControllerDigital::B);
-	okapi::ControllerButton confirm(okapi::ControllerDigital::Y);
-	okapi::ControllerButton exitB(okapi::ControllerDigital::A);
-	bool exit = true;
-	while (exit) {
-		if (increment.changedToPressed()) {
+	// bool exit = true;
+	while (true)
+	{ // og exit
+		if (XButton.changedToPressed())
+		{
 			autonNumber++;
 			autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
-		} else if (decrement.changedToPressed()) {
+		}
+		else if (BButton.changedToPressed())
+		{
 			autonNumber--;
 			autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
 		}
-		if (confirm.changedToPressed()) {
-			switch(autonNumber) {
+		if (YButton.changedToPressed())
+		{
+			switch (autonNumber)
+			{
 			case 0:
-                controller.rumble("-");
-                break;
-            case 1:
-                controller.rumble(". .");
-                break;
-            case 2:
-                controller.rumble("- - -");
-                break;
-            case 3:
-                controller.rumble("- . - .");
-                break;
-			default: // this should never run
-				controller.rumble(". . . - - - . . ."); // haha sos
+				controller.rumble("-");
+				break;
+			case 1:
+				controller.rumble(". .");
+				break;
+			case 2:
+				controller.rumble("- - -");
+				break;
+			case 3:
+				controller.rumble("- . - .");
+				break;
+			default:									// this should never run
+				controller.rumble(". . . - - - . . ."); // haha sos bro the controllers battery is gonna be nonexistant after this one.
 				break;
 			}
 		}
-		if (exitB.changedToPressed()) {
-			exit = false;
+		if (AButton.changedToPressed())
+		{
+			// exit = false;
+			break;
 		}
 		pros::delay(20);
 	}
-
-
-	// while (potentiometer.get() > 700 || potentiometer.get() < 500) //unreliable way for having the cata automatically reset itself hopefully works lmao
-	// {
-	// 	catapult.moveVoltage(12000);
-	// }
-	// catapult.moveVoltage(0);
-	// while(YButton.isPressed()){
-	// 	if(XButton.isPressed()){
-	// 		autonNumber++;
-	// 	} else if (BButton.isPressed()){
-	// 		autonNumber--;
-	// 	} else{
-	// 		//do nothing
-	// 	}
-	// 	if(autonNumber < 0){
-	// 		autonNumber = 3;
-	// 	}
-	// 	if(autonNumber > 3){
-	// 		autonNumber = 0;
-	// 	}
-	// 	switch(autonNumber){
-	// 		case 0:
-    //             controller.rumble(".");
-    //             break;
-    //         case 1:
-    //             controller.rumble("..");
-    //             break;
-    //         case 2:
-    //             controller.rumble("...");
-    //             break;
-    //         case 3:
-    //             controller.rumble("-");
-    //             break;
-	// 	}
-		
-	// 	pros::delay(20);
-	// }
 }
 
 void disabled() {}
@@ -124,33 +89,41 @@ void autonomous()
 void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-	okapi::ControllerButton cToggle(okapi::ControllerDigital::up);
-	// controller.rumble("..");
-	//master.clear(); testing smth
+	// okapi::ControllerButton fire(okapi::ControllerDigital::R1);
+	// okapi::ControllerButton cToggle(okapi::ControllerDigital::up); experimental, possible doesn't work
 	while (true)
 	{
 		// basic chassis control, do not touch.
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
-		// opCatapult();
-		if (cToggle.changedToPressed()) {
+		if (r2.changedToPressed())
+		{
 			cataToggle = !cataToggle;
 		}
 		// Down Pos: 1180
 		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
-		if (cataToggle) {
+		if (cataToggle)
+		{
 			catapult.moveVoltage(12000);
-		} else {
-			if (potentiometer.get() < 1180) {
+		}
+		else
+		{
+			if (potentiometer.get() < 1180)
+			{
 				catapult.moveVoltage(12000);
-			} else if (fire.changedToPressed()) {
+			}
+			else if (r1.changedToPressed())
+			{
 				lastPressed = pros::millis();
 				catapult.moveRelative(1000, 12000);
-			} else if (pros::millis() - lastPressed > 350 && fire.isPressed()) {
+			}
+			else if (pros::millis() - lastPressed > 350 && r1.isPressed())
+			{
 				catapult.moveVoltage(12000);
-			} else {
+			}
+			else
+			{
 				catapult.moveVoltage(0);
 			}
 		}

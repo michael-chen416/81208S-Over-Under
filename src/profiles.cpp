@@ -20,7 +20,7 @@ okapi::ControllerButton r2(okapi::ControllerDigital::R2);
 okapi::ControllerButton rightButton(okapi::ControllerDigital::right);
 okapi::ControllerButton downButton(okapi::ControllerDigital::down);
 okapi::ControllerButton leftButton(okapi::ControllerDigital::left);
-okapi::ControllerButton upButton(okapi::ControllerDigital::up); // no current bind atm
+okapi::ControllerButton upButton(okapi::ControllerDigital::up);
 okapi::ControllerButton AButton(okapi::ControllerDigital::A);
 okapi::ControllerButton BButton(okapi::ControllerDigital::B);
 okapi::ControllerButton XButton(okapi::ControllerDigital::X);
@@ -37,7 +37,7 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);
 // Drivetrain Motor Group
 /* Left group*/ okapi::MotorGroup driveLeftGroup = {lb, lf, lt};
 /* Right group*/ okapi::MotorGroup driveRightGroup = {rb, rf, rt};
-okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
+/* Drive group */ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 
 // Intake
 /* Right intake */ okapi::Motor ri(10, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
@@ -52,6 +52,7 @@ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 /* Gyro */ pros::Imu gyro(15);
 
 // Pneumatics
-pros::ADIDigitalOut rightWing('A', LOW); // change these values later
-pros::ADIDigitalOut leftWing('D', LOW);
-pros::ADIDigitalOut matchloadBar('E', LOW);
+/* Right wing */ pros::ADIDigitalOut rightWing('A', LOW);
+/* Left wing */ pros::ADIDigitalOut leftWing('D', LOW);
+/* Matchload bar */ pros::ADIDigitalOut matchloadBar('E', LOW);
+/* Hang bar */ pros::ADIDigitalOut hangBar('E', LOW); // idk find out on monday
