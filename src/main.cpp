@@ -25,11 +25,8 @@ void initialize()
 	while (exit) {
 		if (increment.changedToPressed() && confirm.isPressed()) {
 			autonNumber++;
-		} else if (decrement.changedToPressed() && confirm.isPressed()) {
-			autonNumber--;
-		}
-		autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
-		switch(autonNumber){
+			autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
+			switch(autonNumber) {
 			case 0:
                 controller.rumble("-");
                 break;
@@ -45,6 +42,27 @@ void initialize()
 			default: // this should never run
 				controller.rumble(". . . - - - . . ."); // haha sos
 				break;
+			}
+		} else if (decrement.changedToPressed() && confirm.isPressed()) {
+			autonNumber--;
+			autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
+			switch(autonNumber) {
+			case 0:
+                controller.rumble("-");
+                break;
+            case 1:
+                controller.rumble(". . . .");
+                break;
+            case 2:
+                controller.rumble("- -");
+                break;
+            case 3:
+                controller.rumble("- . - .");
+                break;
+			default: // this should never run
+				controller.rumble(". . . - - - . . ."); // haha sos
+				break;
+			}
 		}
 		if (exitB.changedToPressed()) {
 			exit = false;
