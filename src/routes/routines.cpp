@@ -8,13 +8,13 @@ void scoring()
 
     /*--Deploy intake--*/
     catapult.moveVoltage(12000);
-    pros::delay(150);
+    pros::delay(180);
     catapult.moveVoltage(0);
 
     /*--Alliance triball--*/
-    pros::delay(75);
+    pros::delay(200);
     intake.moveVoltage(12000);
-    pros::delay(250);
+    pros::delay(225);
     intake.moveVoltage(0);
     motionProfile.moveDistance(3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // to not hit bar
     pros::delay(100);
@@ -24,8 +24,10 @@ void scoring()
     pros::delay(100);
     rotationTurn(45, 8000, 1, 800, {0.02, 0, 0.08}); // pushing triball:
     intake.moveVoltage(-12000);
-    pros::delay(650);
-    motionProfile.moveDistance(13.5, 45, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30}, 2000);
+    pros::delay(500);
+    driveGroup.moveVoltage(12000);
+    pros::delay(1300);
+    driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
     // pros::delay(500);
     motionProfile.moveDistance(-14.5, 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
@@ -33,13 +35,13 @@ void scoring()
     /*--Additional triballs--*/
 
     // pros::delay(500);
-    rotationTurn(-22, 8000, 1, 1200, {0.02, 0, 0.08}); // get to first triball:
+    rotationTurn(-21, 8000, 1, 1200, {0.02, 0, 0.08}); // get to first triball:
     // pros::delay(500);
-    motionProfile.moveDistance(46, -22, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(46, -21, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     intake.moveVoltage(12000);
-    pros::delay(400);
-    motionProfile.moveDistance(-1, 95, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // get triball to goal:
+    pros::delay(200);
     intake.moveVoltage(0);
+    motionProfile.moveDistance(-1, 95, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // get triball to goal:
     rotationTurn(95, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(8, 95, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25});
     intake.moveVoltage(-12000);
@@ -49,15 +51,15 @@ void scoring()
     rotationTurn(20, 8000, 1, 1200, {0.02, 0, 0.08}); // get second and third triball:
     pros::delay(250);
     intake.moveVoltage(12000);
-    motionProfile.moveDistance(24, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    pros::delay(300);
+    motionProfile.moveDistance(21.5, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    pros::delay(250);
     intake.moveVoltage(0);
     motionProfile.moveDistance(-7, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     // pros::delay(500);
     rotationTurn(81.5, 8000, 1, 1200, {0.02, 0, 0.08});
     toggleLeftWing(); // open wings
     toggleRightWing();
-    motionProfile.moveDistance(14.5, 81.5, 1, {0.05, 0, 0.01}, {45, 0.01, 0.3, 3});
+    motionProfile.moveDistance(12, 81.5, 1, {0.05, 0, 0.01}, {45, 0.01, 0.3, 3});
     rotationTurn(135, 8000, 1, 1200, {0.02, 0, 0.08}); // pushing triballs:
     intake.moveVoltage(-12000);
     pros::delay(300);
@@ -84,6 +86,7 @@ void winpointAuton()
     catapult.moveVoltage(0);
 
     /*--Alliance triball--*/
+    pros::delay(175);
     intake.moveVoltage(12000);
     pros::delay(175);
     intake.moveVoltage(0);
@@ -132,7 +135,7 @@ void destruction()
     catapult.moveVoltage(0);
     
     /*--Destroy--*/
-    pros::delay(150);
+    pros::delay(175);
     intake.moveVoltage(12000);
     pros::delay(170);
     intake.moveVoltage(0);
