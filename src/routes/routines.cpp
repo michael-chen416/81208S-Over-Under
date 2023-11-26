@@ -98,8 +98,8 @@ void winpointAuton()
     rotationTurn(133, 8000, 1, 1200, {0.02, 0, 0.08});
     intake.moveVoltage(-12000);
     pros::delay(400); // 500
-    //motionProfile.moveDistance(11.5, 133, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30}, 1500);
-    driveGroup.moveVoltage(12000); 
+    // motionProfile.moveDistance(11.5, 133, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30}, 1500);
+    driveGroup.moveVoltage(12000);
     pros::delay(500);
     driveGroup.moveVoltage(0);
     motionProfile.moveDistance(-15.5, 133, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
@@ -135,7 +135,7 @@ void destruction()
     catapult.moveVoltage(12000);
     pros::delay(200);
     catapult.moveVoltage(0);
-    
+
     /*--Destroy--*/
     pros::delay(175);
     intake.moveVoltage(12000);
@@ -147,13 +147,13 @@ void destruction()
     rotationTurn(0, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(4, 0, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
     toggleLeftWing();
-    rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08});//test
+    rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08}); // test
     motionProfile.moveDistance(26, 90, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}, 1000);
     pros::delay(100);
     toggleLeftWing();
     motionProfile.moveDistance(-12, 90, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(-90, 8000, 1, 1200, {0.02, 0, 0.08});
-    motionProfile.moveDistance(7.5, -90, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); //alliance triball pushin
+    motionProfile.moveDistance(7.5, -90, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); // alliance triball pushin
     intake.moveVoltage(-12000);
     pros::delay(200);
     driveGroup.moveVoltage(12000);
@@ -161,9 +161,9 @@ void destruction()
     intake.moveVoltage(0);
     motionProfile.moveDistance(-16, -90, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(-150, 8000, 1, 1200, {0.02, 0, 0.08});
-    motionProfile.moveDistance(45, -150, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); //trying to get the triball out
+    motionProfile.moveDistance(45, -150, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); // trying to get the triball out
 
-// somehow works:
+    // somehow works:
     toggleMatchLoad();
     pros::delay(150);
     driveLeftGroup.moveVoltage(-8000);
@@ -181,5 +181,4 @@ void destruction()
     pros::delay(700);
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
-
 }

@@ -105,4 +105,4 @@ typedef _NAMESPACE mutex_t Mutex;
 #undef _NAMESPACE
 #undef _CNAMESPACE
 
-#endif  // _PROS_API_LEGACY_H_
+#endif // _PROS_API_LEGACY_H_

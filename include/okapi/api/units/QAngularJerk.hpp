@@ -11,6 +11,7 @@
 
 #include "okapi/api/units/RQuantity.hpp"
 
-namespace okapi {
-QUANTITY_TYPE(0, 0, -3, 1, QAngularJerk)
+namespace okapi
+{
+    QUANTITY_TYPE(0, 0, -3, 1, QAngularJerk)
 }

@@ -7,7 +7,10 @@
 
 #include "okapi/api/control/iterative/iterativeController.hpp"
 
-namespace okapi {
-template <typename Input, typename Output>
-class IterativeVelocityController : public IterativeController<Input, Output> {};
+namespace okapi
+{
+    template <typename Input, typename Output>
+    class IterativeVelocityController : public IterativeController<Input, Output>
+    {
+    };
 } // namespace okapi

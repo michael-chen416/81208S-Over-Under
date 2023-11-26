@@ -8,7 +8,10 @@
 #include "okapi/api/control/async/asyncController.hpp"
 #include <memory>
 
-namespace okapi {
-template <typename Input, typename Output>
-class AsyncVelocityController : virtual public AsyncController<Input, Output> {};
+namespace okapi
+{
+    template <typename Input, typename Output>
+    class AsyncVelocityController : virtual public AsyncController<Input, Output>
+    {
+    };
 } // namespace okapi

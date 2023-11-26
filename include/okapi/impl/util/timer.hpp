@@ -7,16 +7,18 @@
 
 #include "okapi/api/util/abstractTimer.hpp"
 
-namespace okapi {
-class Timer : public AbstractTimer {
+namespace okapi
+{
+  class Timer : public AbstractTimer
+  {
   public:
-  Timer();
+    Timer();
 
-  /**
-   * Returns the current time in units of QTime.
-   *
-   * @return the current time
-   */
-  QTime millis() const override;
-};
+    /**
+     * Returns the current time in units of QTime.
+     *
+     * @return the current time
+     */
+    QTime millis() const override;
+  };
 } // namespace okapi

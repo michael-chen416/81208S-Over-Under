@@ -7,28 +7,33 @@
 
 #include <functional>
 
-namespace okapi {
-/**
- * A supplier of instances of T.
- *
- * @tparam T the type to supply
- */
-template <typename T> class Supplier {
-  public:
-  explicit Supplier(std::function<T(void)> ifunc) : func(ifunc) {
-  }
-
-  virtual ~Supplier() = default;
-
+namespace okapi
+{
   /**
-   * Get an instance of type T. This is usually a new instance, but it does not have to be.
-   * @return an instance of T
+   * A supplier of instances of T.
+   *
+   * @tparam T the type to supply
    */
-  T get() const {
-    return func();
-  }
+  template <typename T>
+  class Supplier
+  {
+  public:
+    explicit Supplier(std::function<T(void)> ifunc) : func(ifunc)
+    {
+    }
+
+    virtual ~Supplier() = default;
+
+    /**
+     * Get an instance of type T. This is usually a new instance, but it does not have to be.
+     * @return an instance of T
+     */
+    T get() const
+    {
+      return func();
+    }
 
   protected:
-  std::function<T(void)> func;
-};
+    std::function<T(void)> func;
+  };
 } // namespace okapi

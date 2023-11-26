@@ -7,7 +7,8 @@
 #define LV_THEME_TEMPL_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /*********************
@@ -21,35 +22,35 @@ extern "C" {
 
 #if USE_LV_THEME_TEMPL
 
-/*********************
- *      DEFINES
- *********************/
+    /*********************
+     *      DEFINES
+     *********************/
 
-/**********************
- *      TYPEDEFS
- **********************/
+    /**********************
+     *      TYPEDEFS
+     **********************/
 
-/**********************
- * GLOBAL PROTOTYPES
- **********************/
+    /**********************
+     * GLOBAL PROTOTYPES
+     **********************/
 
-/**
- * Initialize the templ theme
- * @param hue [0..360] hue value from HSV color space to define the theme's base color
- * @param font pointer to a font (NULL to use the default)
- * @return pointer to the initialized theme
- */
-lv_theme_t * lv_theme_templ_init(uint16_t hue, lv_font_t *font);
+    /**
+     * Initialize the templ theme
+     * @param hue [0..360] hue value from HSV color space to define the theme's base color
+     * @param font pointer to a font (NULL to use the default)
+     * @return pointer to the initialized theme
+     */
+    lv_theme_t *lv_theme_templ_init(uint16_t hue, lv_font_t *font);
 
-/**
- * Get a pointer to the theme
- * @return pointer to the theme
- */
-lv_theme_t * lv_theme_get_templ(void);
+    /**
+     * Get a pointer to the theme
+     * @return pointer to the theme
+     */
+    lv_theme_t *lv_theme_get_templ(void);
 
-/**********************
- *      MACROS
- **********************/
+    /**********************
+     *      MACROS
+     **********************/
 
 #endif
 

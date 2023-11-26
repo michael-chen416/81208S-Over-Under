@@ -7,7 +7,8 @@
 #define LV_DRAW_TRIANGLE_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /*********************
@@ -30,19 +31,18 @@ extern "C" {
 #define USE_LV_TRIANGLE 1
 
 #if USE_LV_TRIANGLE != 0
-/**
- *
- * @param points pointer to an array with 3 points
- * @param mask the triangle will be drawn only in this mask
- * @param color color of the triangle
- */
-void lv_draw_triangle(const lv_point_t * points, const lv_area_t * mask, lv_color_t color);
+    /**
+     *
+     * @param points pointer to an array with 3 points
+     * @param mask the triangle will be drawn only in this mask
+     * @param color color of the triangle
+     */
+    void lv_draw_triangle(const lv_point_t *points, const lv_area_t *mask, lv_color_t color);
 #endif
 
-/**********************
- *      MACROS
- **********************/
-
+    /**********************
+     *      MACROS
+     **********************/
 
 #ifdef __cplusplus
 } /* extern "C" */

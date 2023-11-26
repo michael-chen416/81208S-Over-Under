@@ -7,18 +7,20 @@
 
 #include "okapi/api/control/closedLoopController.hpp"
 
-namespace okapi {
-/**
- * Closed-loop controller that steps on its own in another thread and automatically writes to the
- * output.
- */
-template <typename Input, typename Output>
-class AsyncController : public ClosedLoopController<Input, Output> {
-  public:
+namespace okapi
+{
   /**
-   * Blocks the current task until the controller has settled. Determining what settling means is
-   * implementation-dependent.
+   * Closed-loop controller that steps on its own in another thread and automatically writes to the
+   * output.
    */
-  virtual void waitUntilSettled() = 0;
-};
+  template <typename Input, typename Output>
+  class AsyncController : public ClosedLoopController<Input, Output>
+  {
+  public:
+    /**
+     * Blocks the current task until the controller has settled. Determining what settling means is
+     * implementation-dependent.
+     */
+    virtual void waitUntilSettled() = 0;
+  };
 } // namespace okapi
