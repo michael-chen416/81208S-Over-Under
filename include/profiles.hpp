@@ -4,6 +4,7 @@ extern bool leftWingState;
 extern bool rightWingState;
 extern bool matchloadState;
 extern bool climbingState;
+extern bool cataToggle;
 extern double angleOffset;
 
 // Controller

@@ -83,6 +83,7 @@ void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	okapi::ControllerButton fire(okapi::ControllerDigital::R1);
+	okapi::ControllerButton cToggle(okapi::ControllerDigital::up);
 	// controller.rumble("..");
 	//master.clear(); testing smth
 	while (true)
@@ -92,25 +93,31 @@ void opcontrol()
 		updateIntake();
 		updatePneumatics();
 		// opCatapult();
-
+		if (cToggle.changedToPressed()) {
+			cataToggle = !cataToggle;
+		}
 		// Down Pos: 1180
 		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
-		if (potentiometer.get() < 1180)
-		{
+		if (cataToggle) {
 			catapult.moveVoltage(12000);
-		}
-		else if (fire.changedToPressed())
-		{
-			lastPressed = pros::millis();
-			catapult.moveRelative(1000, 12000);
-		}
-		else if (pros::millis() - lastPressed > 350 && fire.isPressed())
-		{
-			catapult.moveVoltage(12000);
-		}
-		else
-		{
-			catapult.moveVoltage(0);
+		} else {
+			if (potentiometer.get() < 1180)
+			{
+				catapult.moveVoltage(12000);
+			}
+			else if (fire.changedToPressed())
+			{
+				lastPressed = pros::millis();
+				catapult.moveRelative(1000, 12000);
+			}
+			else if (pros::millis() - lastPressed > 350 && fire.isPressed())
+			{
+				catapult.moveVoltage(12000);
+			}
+			else
+			{
+				catapult.moveVoltage(0);
+			}
 		}
 		pros::delay(20);
 	}

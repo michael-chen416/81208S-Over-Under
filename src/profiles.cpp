@@ -4,6 +4,7 @@ bool leftWingState = false;
 bool rightWingState = false;
 bool matchloadState = false;
 bool climbingState = false;
+bool cataToggle = false;
 double angleOffset = 0;
 
 // Controller

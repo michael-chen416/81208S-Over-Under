@@ -73,6 +73,8 @@ void scoring()
     toggleRightWing();
 }
 
+// this path is illegal sometimes? also destruction auton works well enough to just not use this path
+
 void winpointAuton()
 {
     motion_profile motionProfile;
@@ -161,7 +163,7 @@ void destruction()
     rotationTurn(-150, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(45, -150, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); //trying to get the triball out
 
-// shit belows doesn't fucking work
+// somehow works:
     toggleMatchLoad();
     pros::delay(150);
     driveLeftGroup.moveVoltage(-8000);
@@ -180,5 +182,4 @@ void destruction()
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
 
-// 6476313374
 }
