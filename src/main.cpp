@@ -13,6 +13,46 @@ void initialize()
 	pros::lcd::print(2, "Yaw: %f", getIMU());
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
+
+	/* new auton selector hope it works */
+
+	okapi::ControllerButton increment(okapi::ControllerDigital::X);
+	okapi::ControllerButton decrement(okapi::ControllerDigital::B);
+	okapi::ControllerButton confirm(okapi::ControllerDigital::Y);
+	okapi::ControllerButton exitB(okapi::ControllerDigital::A);
+	bool exit = true;
+
+	while (exit) {
+		if (increment.changedToPressed() && confirm.isPressed()) {
+			autonNumber++;
+		} else if (decrement.changedToPressed() && confirm.isPressed()) {
+			autonNumber--;
+		}
+		autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
+		switch(autonNumber){
+			case 0:
+                controller.rumble("-");
+                break;
+            case 1:
+                controller.rumble(". . . .");
+                break;
+            case 2:
+                controller.rumble("- -");
+                break;
+            case 3:
+                controller.rumble("- . - .");
+                break;
+			default: // this should never run
+				controller.rumble(". . . - - - . . ."); // haha sos
+				break;
+		}
+		if (exitB.changedToPressed()) {
+			exit = false;
+		}
+		pros::delay(20);
+	}
+
+
 	// while (potentiometer.get() > 700 || potentiometer.get() < 500) //unreliable way for having the cata automatically reset itself hopefully works lmao
 	// {
 	// 	catapult.moveVoltage(12000);
