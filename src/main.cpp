@@ -10,14 +10,14 @@ void initialize()
 	matchloadBar.set_value(true);
 	gyro.reset();
 	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
-	pros::lcd::print(2, "Yaw: %f", getIMU());
+	pros::lcd::print(3, "Yaw: %f", getIMU());
 	pros::lcd::register_btn1_cb(on_center_button);
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
 
 	/* new auton selector hope it works */
-	// bool exit = true;
-	while (true)
-	{ // og exit
+	bool exit = true;
+	while (exit)
+	{
 		if (XButton.changedToPressed())
 		{
 			autonNumber++;
@@ -28,31 +28,34 @@ void initialize()
 			autonNumber--;
 			autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
 		}
-		if (YButton.changedToPressed())
+		if (BButton.isPressed() || XButton.isPressed())
 		{
 			switch (autonNumber)
 			{
 			case 0:
-				controller.rumble("-");
+				controller.rumble(".");
+				pros::lcd::print(1, "Auton: Winpoint (depreciated)", autonNumber);
 				break;
 			case 1:
-				controller.rumble(". .");
+				controller.rumble("-");
+				pros::lcd::print(1, "Auton: Scoring ", autonNumber);
 				break;
 			case 2:
-				controller.rumble("- - -");
+				pros::lcd::print(1, "Auton: Destruction Winpoint", autonNumber);
+				controller.rumble("- .");
 				break;
 			case 3:
-				controller.rumble("- . - .");
+				pros::lcd::print(1, "Auton: Skills", autonNumber);
+				controller.rumble("- -");
 				break;
 			default:									// this should never run
 				controller.rumble(". . . - - - . . ."); // haha sos bro the controllers battery is gonna be nonexistant after this one.
 				break;
 			}
 		}
-		if (AButton.changedToPressed())
+		if (YButton.changedToPressed())
 		{
-			// exit = false;
-			break;
+			exit = false;
 		}
 		pros::delay(20);
 	}
@@ -99,6 +102,7 @@ void opcontrol()
 		updatePneumatics();
 		if (r2.changedToPressed())
 		{
+			controller.rumble("-");
 			cataToggle = !cataToggle;
 		}
 		// Down Pos: 1180

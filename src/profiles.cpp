@@ -55,4 +55,4 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // select 
 /* Right wing */ pros::ADIDigitalOut rightWing('A', LOW);
 /* Left wing */ pros::ADIDigitalOut leftWing('D', LOW);
 /* Matchload bar */ pros::ADIDigitalOut matchloadBar('E', LOW);
-/* Hang bar */ pros::ADIDigitalOut hangBar('E', LOW); // idk find out on monday
+/* Hang bar */ pros::ADIDigitalOut hangBar('B', LOW);

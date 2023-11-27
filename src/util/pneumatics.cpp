@@ -11,11 +11,11 @@ void updatePneumatics()
     {
         toggleRightWing();
     }
-    if (AButton.changedToPressed())
+    if (downButton.changedToPressed())
     {
         toggleMatchLoad();
     }
-    if (downButton.changedToPressed())
+    if (upButton.changedToPressed())
     {
         toggleHangMech();
     }
