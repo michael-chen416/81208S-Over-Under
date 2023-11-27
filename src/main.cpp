@@ -105,7 +105,7 @@ void opcontrol()
 		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
 		if (cataToggle)
 		{
-			catapult.moveVoltage(12000);
+			catapult.moveVoltage(0);
 		}
 		else
 		{
