@@ -159,16 +159,17 @@ void destruction()
     driveGroup.moveVoltage(12000);
     pros::delay(1000);
     intake.moveVoltage(0);
+
+    /*--Get to matchload area--*/
     motionProfile.moveDistance(-16, -90, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(-150, 8000, 1, 1200, {0.02, 0, 0.08});
     motionProfile.moveDistance(45, -150, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); // trying to get the triball out
-
     // somehow works:
     toggleMatchLoad();
     pros::delay(150);
     driveLeftGroup.moveVoltage(-8000);
     driveRightGroup.moveVoltage(8000);
-    pros::delay(850);
+    pros::delay(850); // flying
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
     toggleMatchLoad();

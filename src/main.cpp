@@ -49,7 +49,7 @@ void initialize()
 				controller.rumble("- -");
 				break;
 			default:									// this should never run
-				controller.rumble(". . . - - - . . ."); // haha sos bro the controllers battery is gonna be nonexistant after this one.
+				controller.rumble(". . . - - - . . ."); // haha sos bro the controllers battery is gonna be nonexistant after this one. well it shouldnt happen anyways
 				break;
 			}
 		}
