@@ -10,21 +10,21 @@ double angleOffset = 0;
 // Controller
 okapi::Controller controller(okapi::ControllerId::master);
 
-okapi::ControllerAnalog leftY(okapi::ControllerAnalog::leftY);
-okapi::ControllerAnalog rightX(okapi::ControllerAnalog::rightX);
-okapi::ControllerAnalog rightY(okapi::ControllerAnalog::rightY);
-okapi::ControllerButton l1(okapi::ControllerDigital::L1);
-okapi::ControllerButton l2(okapi::ControllerDigital::L2);
-okapi::ControllerButton r1(okapi::ControllerDigital::R1);
-okapi::ControllerButton r2(okapi::ControllerDigital::R2);
-okapi::ControllerButton rightButton(okapi::ControllerDigital::right);
-okapi::ControllerButton downButton(okapi::ControllerDigital::down);
-okapi::ControllerButton leftButton(okapi::ControllerDigital::left);
-okapi::ControllerButton upButton(okapi::ControllerDigital::up);
-okapi::ControllerButton AButton(okapi::ControllerDigital::A);
-okapi::ControllerButton BButton(okapi::ControllerDigital::B);
-okapi::ControllerButton XButton(okapi::ControllerDigital::X);
-okapi::ControllerButton YButton(okapi::ControllerDigital::Y);
+okapi::ControllerAnalog leftY(okapi::ControllerAnalog::leftY);        // forward + backwards
+okapi::ControllerAnalog rightX(okapi::ControllerAnalog::rightX);      // left + right
+okapi::ControllerAnalog rightY(okapi::ControllerAnalog::rightY);      // unused
+okapi::ControllerButton l1(okapi::ControllerDigital::L1);             // intake
+okapi::ControllerButton l2(okapi::ControllerDigital::L2);             // outtake
+okapi::ControllerButton r1(okapi::ControllerDigital::R1);             // fire catapult
+okapi::ControllerButton r2(okapi::ControllerDigital::R2);             // toggle catapult
+okapi::ControllerButton rightButton(okapi::ControllerDigital::right); // toggle right wing
+okapi::ControllerButton downButton(okapi::ControllerDigital::down);   // toggle matchload
+okapi::ControllerButton leftButton(okapi::ControllerDigital::left);   // toggle left wing
+okapi::ControllerButton upButton(okapi::ControllerDigital::up);       // toggle hang bar
+okapi::ControllerButton AButton(okapi::ControllerDigital::A);         // exit auton selector
+okapi::ControllerButton BButton(okapi::ControllerDigital::B);         // decrement auton selector
+okapi::ControllerButton XButton(okapi::ControllerDigital::X);         // increment auton selector
+okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // select auton path
 
 // Drivetrain
 /* Left front */ okapi::Motor lf(8, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
