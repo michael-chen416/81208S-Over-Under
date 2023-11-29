@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "81208S Experimental",
+    "project_name": "81208S Destroy",
     "target": "v5",
     "templates": {
       "kernel": {
@@ -310,8 +310,8 @@
     },
     "upload_options": {
       "description": "81208S team code",
-      "slot": 2,
-      "icon": "X"
+      "slot": 3,
+      "icon": "pros"
     }
   }
 }

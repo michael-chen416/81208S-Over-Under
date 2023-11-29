@@ -99,7 +99,7 @@ void toggleRightWing()
  */
 void extendMatchload()
 {
-    matchloadBar.set_value(false);
+    matchloadBar.set_value(true);
     matchloadState = true;
 }
 
@@ -109,7 +109,7 @@ void extendMatchload()
  */
 void retractMatchload()
 {
-    matchloadBar.set_value(true);
+    matchloadBar.set_value(false);
     matchloadState = false;
 }
 

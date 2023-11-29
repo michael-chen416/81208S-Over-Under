@@ -1,13 +1,12 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 1; // auton selector test.
+int autonNumber = 2; // auton selector test.
 
 void on_center_button() {}
 
 void initialize()
 {
 	pros::lcd::initialize();
-	matchloadBar.set_value(true);
 	gyro.reset();
 	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 	pros::lcd::print(3, "Yaw: %f", getIMU());
@@ -15,50 +14,50 @@ void initialize()
 	driveGroup.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
 
 	/* new auton selector hope it works */
-	bool exit = true;
-	while (exit)
-	{
-		if (XButton.changedToPressed())
-		{
-			autonNumber++;
-			autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
-		}
-		else if (BButton.changedToPressed())
-		{
-			autonNumber--;
-			autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
-		}
-		if (BButton.isPressed() || XButton.isPressed())
-		{
-			switch (autonNumber)
-			{
-			case 0:
-				controller.rumble(".");
-				pros::lcd::print(1, "Auton: Winpoint (depreciated)", autonNumber);
-				break;
-			case 1:
-				controller.rumble("-");
-				pros::lcd::print(1, "Auton: Scoring ", autonNumber);
-				break;
-			case 2:
-				pros::lcd::print(1, "Auton: Destruction Winpoint", autonNumber);
-				controller.rumble("- .");
-				break;
-			case 3:
-				pros::lcd::print(1, "Auton: Skills", autonNumber);
-				controller.rumble("- -");
-				break;
-			default:									// this should never run
-				controller.rumble(". . . - - - . . ."); // haha sos bro the controllers battery is gonna be nonexistant after this one. well it shouldnt happen anyways
-				break;
-			}
-		}
-		if (YButton.changedToPressed())
-		{
-			exit = false;
-		}
-		pros::delay(20);
-	}
+	// bool exit = true;
+	// while (exit)
+	// {
+	// 	if (XButton.changedToPressed())
+	// 	{
+	// 		autonNumber++;
+	// 		autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
+	// 	}
+	// 	else if (BButton.changedToPressed())
+	// 	{
+	// 		autonNumber--;
+	// 		autonNumber = (autonNumber + 4) % 4; // remember to change this when adding new paths
+	// 	}
+	// 	if (BButton.isPressed() || XButton.isPressed())
+	// 	{
+	// 		switch (autonNumber)
+	// 		{
+	// 		case 0:
+	// 			controller.rumble(".");
+	// 			pros::lcd::print(1, "Auton: Winpoint (depreciated)", autonNumber);
+	// 			break;
+	// 		case 1:
+	// 			controller.rumble("-");
+	// 			pros::lcd::print(1, "Auton: Scoring ", autonNumber);
+	// 			break;
+	// 		case 2:
+	// 			pros::lcd::print(1, "Auton: Destruction Winpoint", autonNumber);
+	// 			controller.rumble("- .");
+	// 			break;
+	// 		case 3:
+	// 			pros::lcd::print(1, "Auton: Skills", autonNumber);
+	// 			controller.rumble("- -");
+	// 			break;
+	// 		default:									// this should never run
+	// 			controller.rumble(". . . - - - . . ."); // haha sos bro the controllers battery is gonna be nonexistant after this one. well it shouldnt happen anyways
+	// 			break;
+	// 		}
+	// 	}
+	// 	if (YButton.changedToPressed())
+	// 	{
+	// 		exit = false;
+	// 	}
+	// 	pros::delay(20);
+	// }
 }
 
 void disabled() {}
