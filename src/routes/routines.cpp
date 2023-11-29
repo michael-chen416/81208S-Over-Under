@@ -86,7 +86,7 @@ void winpointAuton()
     catapult.moveVoltage(0);
 
     /*--Alliance Ball Scoring--*/
-    pros::delay(175);
+    pros::delay(150);
     intake.moveVoltage(12000);
     pros::delay(170);
     intake.moveVoltage(0);
@@ -192,7 +192,7 @@ void destruction()
     intake.moveVoltage(12000);
     pros::delay(225);
     catapult.moveVoltage(0);
-    pros::delay(200);
+    pros::delay(250);
     intake.moveVoltage(0);
 
     /*--Destroy--*/

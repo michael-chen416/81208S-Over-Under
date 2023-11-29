@@ -1,7 +1,7 @@
 #include "main.h"
 
 void skills()
-{ // DO NOT DRY FIRE also gyro is like acting up very inconsistant
+{ // DO NOT DRY FIRE also gyro is acting up 
     motion_profile motionProfile;
 
     // normal setup
