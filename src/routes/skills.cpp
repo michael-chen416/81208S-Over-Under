@@ -9,21 +9,80 @@ void skills()
 
     /*--Deploy intake + outtake alliance triball to offensive zone--*/
     catapult.moveVoltage(12000);
-    intake.moveVoltage(12000);
-    pros::delay(225);
+    pros::delay(125);
     catapult.moveVoltage(0);
-    pros::delay(200);
-    intake.moveVoltage(0);
-
+    
     /*--Catapult--*/
-    motionProfile.moveDistance(20, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(12, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(-90, 8000, 1, 1000, {0.02, 0, 0.08});
-    motionProfile.moveDistance(18, -90, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    rotationTurn(-105, 8000, 1, 1000, {0.02, 0, 0.08});
-    motionProfile.moveDistance(4, -105, 1, {0.05, 0, 0.01}, {20, 0.01, 0.3, 3});
+    motionProfile.moveDistance(12, -90, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(-102, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(5, -102, 1, {0.05, 0, 0.01}, {20, 0.01, 0.3, 3}, 750);
     catapult.moveVoltage(12000);
     pros::delay(42000);
     catapult.moveVoltage(0);
+
+    /*--Get alliance triball and get to other side--*/
+    motionProfile.moveDistance(-8, -102, 1, {0.05, 0, 0.01}, {20, 0.01, 0.3, 3});
+    rotationTurn(-45, 8000, 1, 1000, {0.02, 0, 0.08});
+    intake.moveVoltage(12000);
+    motionProfile.moveDistance(14, -45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    pros::delay(150);
+    intake.moveVoltage(0);
+    motionProfile.moveDistance(-28, -45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(-90, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-70, -90, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+
+    /*--Get to center--*/
+    rotationTurn(-135, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-13, -135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(6, -135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(-45, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(18, -45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    driveRightGroup.moveVoltage(3000);
+    driveLeftGroup.moveVoltage(7000);
+    pros::delay(750);
+    driveGroup.moveVoltage(0);
+
+    /*--Front push x2--*/
+    toggleLeftWing();
+    rotationTurn(90, 6000, 1, 1000, {0.02, 0, 0.08});
+    toggleRightWing();
+    driveGroup.moveVoltage(12000);
+    pros::delay(1000);
+    driveGroup.moveVoltage(0);
+    toggleLeftWing();
+    toggleRightWing();
+    motionProfile.moveDistance(-20, 90, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    toggleLeftWing();
+    toggleRightWing();
+    driveGroup.moveVoltage(12000);
+    pros::delay(1200);
+    driveGroup.moveVoltage(0);
+    toggleLeftWing();
+    toggleRightWing();
+
+    /*--Get to side--*/
+    motionProfile.moveDistance(-10, 90, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3});
+    rotationTurn(0, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-26, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(-45, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-16, -45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    driveLeftGroup.moveVoltage(-6000);
+    pros::delay(400);    
+    rotationTurn(-135, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-6, -135, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3});
+
+    /*--Side push--*/
+    rotationTurn(-178, 8000, 1, 1000, {0.02, 0, 0.08});
+    driveGroup.moveVoltage(-12000);
+    pros::delay(1200);
+    driveGroup.moveVoltage(0);
+    motionProfile.moveDistance(10, -178, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    
+
+
+
 
     /*--old skills, gyro dead, cata positioning is dangerous or smth--*/
 

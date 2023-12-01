@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 0; // auton selector test.
+int autonNumber = 3; // auton selector test.
 
 void on_center_button() {}
 
@@ -99,9 +99,10 @@ void opcontrol()
 		driveChassis();
 		updateIntake();
 		updatePneumatics();
+		// cata
 		if (r2.changedToPressed())
 		{
-			controller.rumble("-");
+			controller.rumble(".");
 			cataToggle = !cataToggle;
 		}
 		// Down Pos: 1180

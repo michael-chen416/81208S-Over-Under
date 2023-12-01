@@ -8,13 +8,13 @@ void scoring()
 
     /*--Deploy intake--*/
     catapult.moveVoltage(12000);
-    pros::delay(225);
+    pros::delay(125);
     catapult.moveVoltage(0);
 
     /*--Alliance triball--*/
     pros::delay(200);
     intake.moveVoltage(12000);
-    pros::delay(225);
+    pros::delay(180);
     intake.moveVoltage(0);
     motionProfile.moveDistance(3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // to not hit bar
     pros::delay(100);
@@ -26,7 +26,7 @@ void scoring()
     intake.moveVoltage(-12000);
     pros::delay(500);
     driveGroup.moveVoltage(12000);
-    pros::delay(1300);
+    pros::delay(1000);
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
     // pros::delay(500);
@@ -35,9 +35,9 @@ void scoring()
     /*--Additional triballs--*/
 
     // pros::delay(500);
-    rotationTurn(-21, 8000, 1, 1200, {0.02, 0, 0.08}); // get to first triball:
+    rotationTurn(-22, 8000, 1, 1200, {0.02, 0, 0.08}); // get to first triball:
     // pros::delay(500);
-    motionProfile.moveDistance(46, -21, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    motionProfile.moveDistance(46, -22, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     intake.moveVoltage(12000);
     pros::delay(200);
     intake.moveVoltage(0);
@@ -52,7 +52,7 @@ void scoring()
     pros::delay(250);
     intake.moveVoltage(12000);
     motionProfile.moveDistance(21.5, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    pros::delay(250);
+    pros::delay(180);
     intake.moveVoltage(0);
     motionProfile.moveDistance(-7, 20, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     // pros::delay(500);
@@ -82,13 +82,13 @@ void winpointAuton()
 
     /*--Deploy intake--*/
     catapult.moveVoltage(12000);
-    pros::delay(225);
+    pros::delay(125);
     catapult.moveVoltage(0);
 
     /*--Alliance Ball Scoring--*/
-    pros::delay(150);
+    pros::delay(200);
     intake.moveVoltage(12000);
-    pros::delay(170);
+    pros::delay(180);
     intake.moveVoltage(0);
     motionProfile.moveDistance(24, 0, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(30, 8000, 1, 1200, {0.02, 0, 0.08});
@@ -190,9 +190,9 @@ void destruction()
     /*--Deploy intake--*/
     catapult.moveVoltage(12000);
     intake.moveVoltage(12000);
-    pros::delay(225);
+    pros::delay(125);
     catapult.moveVoltage(0);
-    pros::delay(250);
+    pros::delay(180);
     intake.moveVoltage(0);
 
     /*--Destroy--*/
@@ -233,7 +233,7 @@ void destruction()
     pros::delay(75);
     intake.moveVoltage(-12000);
     driveGroup.moveVoltage(12000);
-    pros::delay(715);
+    pros::delay(740);
     driveGroup.moveVoltage(0);
     intake.moveVoltage(0);
 }
