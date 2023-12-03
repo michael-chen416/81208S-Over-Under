@@ -1,7 +1,10 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 3; // auton selector test.
-
+int autonNumber = 3; 
+// 0 = Winpoint
+// 1 = Scoring
+// 2 = Destrution
+// 3 = Destruction
 void on_center_button() {}
 
 void initialize()
@@ -91,8 +94,6 @@ void autonomous()
 void opcontrol()
 {
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	// okapi::ControllerButton fire(okapi::ControllerDigital::R1);
-	// okapi::ControllerButton cToggle(okapi::ControllerDigital::up); experimental, possible doesn't work
 	while (true)
 	{
 		// basic chassis control, do not touch.
@@ -103,11 +104,15 @@ void opcontrol()
 		if (r2.changedToPressed())
 		{
 			controller.rumble(".");
+			cataStop = !cataStop;
+		}
+		if (r1.changedToPressed())
+		{
 			cataToggle = !cataToggle;
 		}
 		// Down Pos: 1180
 		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
-		if (cataToggle)
+		if (cataStop)
 		{
 			catapult.moveVoltage(0);
 		}
@@ -117,12 +122,12 @@ void opcontrol()
 			{
 				catapult.moveVoltage(12000);
 			}
-			else if (r1.changedToPressed())
+			else if (cataToggle)
 			{
 				lastPressed = pros::millis();
 				catapult.moveRelative(1000, 12000);
 			}
-			else if (pros::millis() - lastPressed > 350 && r1.isPressed())
+			else if (pros::millis() - lastPressed > 350 && cataToggle)
 			{
 				catapult.moveVoltage(12000);
 			}
