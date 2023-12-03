@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 3; // auton selector test.
+int autonNumber = 2; // auton selector test.
 
 void on_center_button() {}
 

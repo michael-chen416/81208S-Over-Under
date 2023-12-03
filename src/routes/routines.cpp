@@ -217,7 +217,7 @@ void destruction()
     /*--Get to matchload area--*/
     motionProfile.moveDistance(-16, -90, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(-150, 8000, 1, 1200, {0.02, 0, 0.08});
-    motionProfile.moveDistance(45, -150, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); // trying to get the triball out
+    motionProfile.moveDistance(44.5, -150, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3}); // trying to get the triball out
     // somehow works:
     toggleMatchLoad();
     pros::delay(150);
@@ -227,13 +227,21 @@ void destruction()
     driveLeftGroup.moveVoltage(0);
     driveRightGroup.moveVoltage(0);
     toggleMatchLoad();
-    rotationTurn(135, 8000, 1, 1200, {0.02, 0, 0.08});
-    motionProfile.moveDistance(8, 135, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
-    rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08});
-    pros::delay(75);
-    intake.moveVoltage(-12000);
-    driveGroup.moveVoltage(12000);
-    pros::delay(740);
-    driveGroup.moveVoltage(0);
-    intake.moveVoltage(0);
+
+    /*--Winpoint ending--*/
+    // rotationTurn(136.5, 8000, 1, 1200, {0.02, 0, 0.08});
+    // motionProfile.moveDistance(8, 136.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08});
+    // pros::delay(75);
+    // intake.moveVoltage(-12000);
+    // driveGroup.moveVoltage(12000);
+    // pros::delay(685);
+    // driveGroup.moveVoltage(0);
+    // intake.moveVoltage(0);
+
+    /*--Destroy ending--*/
+    rotationTurn(30, 8000, 1, 1200, {0.02, 0, 0.08});
+    motionProfile.moveDistance(10, 136.5, 1, {0.02, 0, 0.01}, {30, 0.01, 0.3, 3});
+    rotationTurn(110, 8000, 1, 1200, {0.02, 0, 0.08});
+    motionProfile.moveDistance(6, 110, 1, {0.02, 0, 0.01}, {30, 0.01, 0.3, 3});
 }
