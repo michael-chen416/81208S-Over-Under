@@ -187,3 +187,10 @@ void motion_profile::moveDistance(double distance, double direction, double offs
 void motion_profile::moveDistance2(double distance, double direction, double jerk)
 {
 }
+
+void motion_profile::moveDistanceVoltage(double distance, double voltage) {
+    // distance / (motor rpm * ratio * voltage / 12000 / 60000 * circumference) = ms
+    driveGroup.moveVoltage(voltage);
+    pros::delay(distance/(GEARBOX*GEAR_RATIO*voltage*CIRCUMFERENCE/720000000));
+    driveGroup.moveVoltage(0);
+}

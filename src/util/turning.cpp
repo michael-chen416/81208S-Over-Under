@@ -186,3 +186,39 @@ void travelTurn(double distance, double driveVoltage, double angle, double turnV
     moveRightGroup(0);
     pros::delay(10);
 }
+
+/* /// Experimental /// */
+
+void radiusTurn(double finalAngle, double turnRadius, double turnVoltage, double momentum, uint32_t timeout, PIDvalues values)
+{
+
+    /* ROTATIONTURN CODE FOR REFERENCE */
+    // setup variables
+    uint32_t startTime = pros::millis();
+
+    /*rotationturn pid*/
+    PID_controller turnController(values);
+    turnController.SetTarget(finalAngle);
+    /*rotationturn pid*/
+
+    double startingAngle = getIMU();
+    // have the loop include timeout and angle checking
+    while (abs(finalAngle - getIMU()) > momentum      && timeout > pros::millis() - startTime)
+    {
+        /* rotationturn */
+        double outputValue = turnController.Calculate(getIMU());
+        moveLeftGroup(turnVoltage * outputValue);
+        moveRightGroup(turnVoltage * outputValue * (-1));
+        /* rotationturn */
+
+
+
+        pros::lcd::print(1, "Current angle: %f", getIMU());
+        pros::delay(10);
+    }
+    moveLeftGroup(0);
+    moveRightGroup(0);
+    ////////////////////////////////////////////
+
+
+}

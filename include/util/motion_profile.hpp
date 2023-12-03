@@ -28,6 +28,9 @@ public:
     void moveDistance(double distance, double direction, double offset, PIDvalues values, MotionData data, uint32_t timeout);
 
     void moveDistance2(double distance, double direction, double jerk);
+
+    // experimental
+    void moveDistanceVoltage(double distance, double voltage);
 };
 
 #endif
