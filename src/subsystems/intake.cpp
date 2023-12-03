@@ -18,11 +18,3 @@ void updateIntake()
     intake.moveVoltage(0);
   }
 }
-
-void progIntake()
-{ // fix
-  uint32_t timeout = pros::millis();
-  intake.moveRelative(-40, -6000);
-  pros::delay(75);
-  intake.moveVoltage(0);
-}
