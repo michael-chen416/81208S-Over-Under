@@ -1,6 +1,10 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 2; // auton selector test.
+int autonNumber = 2; 
+// 0 = Winpoint
+// 1 = Scoring
+// 2 = Destrution
+// 3 = Destruction
 
 void on_center_button() {}
 
