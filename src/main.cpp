@@ -3,8 +3,8 @@ uint32_t lastPressed = -800;
 int autonNumber = 3; 
 // 0 = Winpoint
 // 1 = Scoring
-// 2 = Destrution
-// 3 = Destruction
+// 2 = Destruction
+// 3 = skills
 void on_center_button() {}
 
 void initialize()
@@ -123,11 +123,6 @@ void opcontrol()
 				catapult.moveVoltage(12000);
 			}
 			else if (cataToggle)
-			{
-				lastPressed = pros::millis();
-				catapult.moveRelative(1000, 12000);
-			}
-			else if (pros::millis() - lastPressed > 350 && cataToggle)
 			{
 				catapult.moveVoltage(12000);
 			}
