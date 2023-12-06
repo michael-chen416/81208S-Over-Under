@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 2; 
+int autonNumber = 3; 
 // 0 = Winpoint
 // 1 = Scoring
 // 2 = Destrution
@@ -87,7 +87,7 @@ void autonomous()
 		break;
 	case 3:
 		pros::lcd::set_text(1, "SKILLS");
-		skills();
+		skills2();
 		break;
 	}
 }

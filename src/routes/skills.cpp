@@ -156,3 +156,89 @@ void skills()
     toggleRightWing();
     motionProfile.moveDistance(-16, -63 - 100, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 2000);
 }
+
+void skills2() {
+    motion_profile motionProfile;
+
+    // normal setup
+    // outtake while pushing front
+
+    /*--Deploy intake--*/
+    catapult.moveVoltage(12000);
+    pros::delay(125);
+    catapult.moveVoltage(0);
+    
+    // /*--Alliance Balls--*/
+    // motionProfile.moveDistance(-21, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // rotationTurn(45, 6000, 1, 1000, {0.02, 0, 0.08});
+    // driveGroup.moveVoltage(-12000);
+    // pros::delay(600);
+    // driveGroup.moveVoltage(0);
+    // motionProfile.moveDistance(8, 45, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+
+    // /*--Cata--*/
+    // rotationTurn(135, 8000, 1, 1000, {0.02, 0, 0.08});
+    // motionProfile.moveDistance(-12, 135, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // rotationTurn(103, 8000, 1, 1000, {0.02, 0, 0.08});
+    // motionProfile.moveDistance(17, 103, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3}, 750);
+
+    /*--Setup--*/
+    motionProfile.moveDistance(13.5, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(-77, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(8, -77, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3});
+
+    /*--Firing--*/
+    catapult.moveVoltage(12000);
+    pros::delay(41500);
+    catapult.moveVoltage(0);
+    gyro.reset(false);
+    pros::delay(2500);
+
+    /*--Get alliance triball and get to other side--*/
+    motionProfile.moveDistance(-8, 103-103, 1, {0.05, 0, 0.01}, {20, 0.01, 0.3, 3});
+    rotationTurn(-45+225-103, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-24, -45+225-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(-90+225-103, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-77, -90+225-103, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+
+    /*--Get to center--*/
+    rotationTurn(-135+225-103, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(-12, -135+225-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(-45+225-103, 8000, 1, 1000, {0.02, 0, 0.08});
+    motionProfile.moveDistance(23, -45+225-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    driveRightGroup.moveVoltage(4000);
+    driveLeftGroup.moveVoltage(7000);
+    pros::delay(850);
+    driveGroup.moveVoltage(0);
+
+    /*--Front push x2--*/
+    toggleLeftWing();
+    rotationTurn(-179, 6000, 1, 1000, {0.02, 0, 0.08});
+    toggleRightWing();
+    driveGroup.moveVoltage(12000);
+    pros::delay(1200);
+    driveGroup.moveVoltage(0);
+    toggleLeftWing();
+    toggleRightWing();
+    motionProfile.moveDistance(-20, 90-135-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    toggleLeftWing();
+    toggleRightWing();
+    driveGroup.moveVoltage(12000);
+    pros::delay(1200);
+    driveGroup.moveVoltage(0);
+    toggleLeftWing();
+    toggleRightWing();
+
+    // /*--Get to side--*/
+    // motionProfile.moveDistance(-22, 90-135-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    // rotationTurn(-122, 8000, 1, 1000, {0.02, 0, 0.08});
+    // motionProfile.moveDistance(-122, 90-135-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    
+
+    // /*--Side push--*/
+    // rotationTurn(-180+225-103, 8000, 1, 1000, {0.02, 0, 0.08});
+    // driveGroup.moveVoltage(-12000);
+    // pros::delay(1200);
+    // driveGroup.moveVoltage(0);
+    // motionProfile.moveDistance(10, -180+225-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+}
