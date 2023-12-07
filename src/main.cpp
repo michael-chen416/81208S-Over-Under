@@ -87,7 +87,7 @@ void autonomous()
 		break;
 	case 3:
 		pros::lcd::set_text(1, "SKILLS");
-		skills2();
+		skills();
 		break;
 	}
 }
