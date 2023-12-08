@@ -29,9 +29,9 @@ void skills()
     // motionProfile.moveDistance(17, 103, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 3}, 750);
 
     /*--Setup--*/
-    motionProfile.moveDistance(12.5, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 40});
-    rotationTurn(-74.5, 8000, 1, 1000, {0.02, 0, 0.08});//77
-    motionProfile.moveDistance(11.7, -74.5, 1, {0.05, 0, 0.01}, {30, 0.01, 0.3, 30});
+    motionProfile.moveDistance(16, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 40});
+    rotationTurn(-36, 8000, 1, 1000, {0.02, 0, 0.08});
+    toggleLeftWing();
 
     /*--Firing--*/
     pros::delay(200);
@@ -39,6 +39,7 @@ void skills()
     pros::delay(42500);//We should create an auto setting function, do this later
     catapult.moveVoltage(0);
     gyro.reset();
+    toggleLeftWing();
     pros::delay(2500);
 
     /*--Get alliance triball and get to other side--*/

@@ -40,7 +40,7 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // select 
 /* Drive group */ okapi::MotorGroup driveGroup = {lb, lf, lt, rf, rb, rt};
 
 // Intake
-/* Right intake */ okapi::Motor ri(10, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
+/* Right intake */ okapi::Motor ri(3, true, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
 /* Left intake */ okapi::Motor li(9, false, okapi::AbstractMotor::gearset::green, okapi::AbstractMotor::encoderUnits::degrees);
 /* Intake motor group */ okapi::MotorGroup intake = {ri, li};
 
