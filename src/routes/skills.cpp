@@ -30,16 +30,16 @@ void skills()
 
     /*--Setup--*/
     motionProfile.moveDistance(16, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 40});
-    rotationTurn(-36, 8000, 1, 1000, {0.02, 0, 0.08});
+    rotationTurn(-42, 8000, 1, 1000, {0.02, 0, 0.08});
     toggleLeftWing();
 
     /*--Firing--*/
-    pros::delay(200);
+    pros::delay(500);
     catapult.moveVoltage(12000);
     pros::delay(42500);//We should create an auto setting function, do this later
     catapult.moveVoltage(0);
-    gyro.reset();
     toggleLeftWing();
+    gyro.reset();
     pros::delay(2500);
 
     /*--Get alliance triball and get to other side--*/
@@ -61,12 +61,13 @@ void skills()
 
     /*--Front push x2--*/
     toggleLeftWing();
+    toggleRightWing();
     moveLeftGroup(12000);//section is where it should help the robot rotate correctly lol
     moveRightGroup(-12000);
     pros::delay(400);
     driveGroup.moveVoltage(0);
     rotationTurn(-175.5/*-179*/, 6000, 1, 1000, {0.02, 0, 0.08});
-    toggleRightWing();
+    
     pros::delay(150);
     driveGroup.moveVoltage(12000);
     pros::delay(1200);
