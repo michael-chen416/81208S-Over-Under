@@ -6,14 +6,14 @@ void skills()
     motion_profile motionProfile;
 
     // not that normal setup we're gonna need a jig for that lmao
-    // parallel to the matchload bar just like 12inches away 
+    // parallel to the matchload bar just like 12inches away
     // outtake while pushing front
 
     /*--Deploy intake--*/
     catapult.moveVoltage(12000);
     pros::delay(125);
     catapult.moveVoltage(0);
-    
+
     // /*--Alliance Balls--*/
     // motionProfile.moveDistance(-21, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     // rotationTurn(45, 6000, 1, 1000, {0.02, 0, 0.08});
@@ -36,7 +36,7 @@ void skills()
     /*--Firing--*/
     pros::delay(500);
     catapult.moveVoltage(12000);
-    pros::delay(42500);//We should create an auto setting function, do this later
+    pros::delay(42500); // We should create an auto setting function, do this later
     catapult.moveVoltage(0);
     toggleLeftWing();
     gyro.reset();
@@ -54,40 +54,41 @@ void skills()
     motionProfile.moveDistance(-10, -23, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     rotationTurn(67, 8000, 1, 1000, {0.02, 0, 0.08});
     motionProfile.moveDistance(23, 67, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
+    toggleLeftWing();
     driveRightGroup.moveVoltage(4500);
     driveLeftGroup.moveVoltage(7000);
-    pros::delay(1000);//850
+    pros::delay(1000); // 850
     driveGroup.moveVoltage(0);
 
     /*--Front push x2--*/
-    toggleLeftWing();
     toggleRightWing();
-    moveLeftGroup(12000);//section is where it should help the robot rotate correctly lol
+    moveLeftGroup(12000); // section is where it should help the robot rotate correctly lol
     moveRightGroup(-12000);
     pros::delay(400);
     driveGroup.moveVoltage(0);
-    rotationTurn(-175.5/*-179*/, 6000, 1, 1000, {0.02, 0, 0.08});
-    
+    rotationTurn(-176 /*-175.5*/, 6000, 1, 1000, {0.02, 0, 0.08});
+
     pros::delay(150);
+    driveGroup.moveVoltage(10000);
+    pros::delay(1200);
+    driveGroup.moveVoltage(0);
+    toggleLeftWing();
+    toggleRightWing();
+    motionProfile.moveDistance(-20, -158, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}); // eh we can work on this shit later
+    toggleLeftWing();
+    toggleRightWing();
     driveGroup.moveVoltage(12000);
     pros::delay(1200);
     driveGroup.moveVoltage(0);
     toggleLeftWing();
     toggleRightWing();
-    motionProfile.moveDistance(-20, -158, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});//eh we can work on this shit later
-    toggleLeftWing();
-    toggleRightWing();
-    driveGroup.moveVoltage(12000);
-    pros::delay(1200);
-    driveGroup.moveVoltage(0);
-    toggleLeftWing();
-    toggleRightWing();
+
+    // It would be nice if we could do a side push but I don't think that's an option lol
 
     // /*--Get to side--*/
     // motionProfile.moveDistance(-22, 90-135-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     // rotationTurn(-122, 8000, 1, 1000, {0.02, 0, 0.08});
     // motionProfile.moveDistance(-122, 90-135-103, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    
 
     // /*--Side push--*/
     // rotationTurn(-180+225-103, 8000, 1, 1000, {0.02, 0, 0.08});
@@ -103,7 +104,7 @@ void skills()
     // catapult.moveVoltage(12000);
     // pros::delay(125);
     // catapult.moveVoltage(0);
-    
+
     // /*--Catapult--*/
     // motionProfile.moveDistance(11, 0, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
     // rotationTurn(-90, 8000, 1, 1000, {0.02, 0, 0.08});
@@ -172,10 +173,6 @@ void skills()
     // pros::delay(1200);
     // driveGroup.moveVoltage(0);
     // motionProfile.moveDistance(10, -178, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
-    
-
-
-
 
     // /*--old skills, gyro dead, cata positioning is dangerous or smth--*/
 
@@ -207,7 +204,7 @@ void skills()
     // pros::delay(500);
     // catapult.moveVoltage(0);
     // pros::delay(1600);
-    
+
     // /*--Push triballs in--*/
     // // pros::delay(5000);
     // motionProfile.moveDistance(-8, 100 - 100, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3});
@@ -246,8 +243,4 @@ void skills()
     // toggleLeftWing();
     // toggleRightWing();
     // motionProfile.moveDistance(-16, -63 - 100, 1, {0.05, 0, 0.01}, {40, 0.01, 0.3, 3}, 2000);
-}
-
-void skills2() {
-    
 }

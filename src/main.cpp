@@ -106,7 +106,6 @@ void opcontrol()
 		// cata
 		if (r2.changedToPressed())
 		{
-			controller.rumble(".");
 			cataToggle = !cataToggle;
 		}
 		// Down Pos: 1180
