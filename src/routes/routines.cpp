@@ -240,19 +240,19 @@ void destruction()
     toggleMatchLoad();
 
     /*--Winpoint ending--*/
-    // rotationTurn(136.5, 8000, 1, 1200, {0.02, 0, 0.08});
-    // motionProfile.moveDistance(8, 136.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
-    // rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08});
-    // pros::delay(75);
-    // intake.moveVoltage(-12000);
-    // driveGroup.moveVoltage(12000);
-    // pros::delay(685);
-    // driveGroup.moveVoltage(0);
-    // intake.moveVoltage(0);
+    rotationTurn(136.5, 8000, 1, 1200, {0.02, 0, 0.08});
+    motionProfile.moveDistance(8, 136.5, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(90, 8000, 1, 1200, {0.02, 0, 0.08});
+    pros::delay(75);
+    intake.moveVoltage(-12000);
+    driveGroup.moveVoltage(12000);
+    pros::delay(685);
+    driveGroup.moveVoltage(0);
+    intake.moveVoltage(0);
 
     /*--Destroy ending--*/
-    rotationTurn(30, 8000, 1, 1200, {0.02, 0, 0.08});
-    motionProfile.moveDistance(10, 136.5, 1, {0.02, 0, 0.01}, {30, 0.01, 0.3, 3});
-    rotationTurn(110, 8000, 1, 1200, {0.02, 0, 0.08});
-    motionProfile.moveDistance(6, 110, 1, {0.02, 0, 0.01}, {30, 0.01, 0.3, 3});
+    // rotationTurn(30, 8000, 1, 1200, {0.02, 0, 0.08});
+    // motionProfile.moveDistance(10, 136.5, 1, {0.02, 0, 0.01}, {30, 0.01, 0.3, 3});
+    // rotationTurn(110, 8000, 1, 1200, {0.02, 0, 0.08});
+    // motionProfile.moveDistance(6, 110, 1, {0.02, 0, 0.01}, {30, 0.01, 0.3, 3});
 }

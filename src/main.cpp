@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 3; 
+int autonNumber = 0; 
 // 0 = Winpoint
 // 1 = Scoring
 // 2 = Destrution
@@ -75,7 +75,7 @@ void autonomous()
 	{
 	case 0:
 		pros::lcd::set_text(1, "WinPoint_1");
-		winpointAuton();
+		destruction();
 		break;
 	case 1:
 		pros::lcd::set_text(1, "Scoring");
@@ -112,7 +112,8 @@ void opcontrol()
 		//if it is toggled, don't move the catapult
 		//if it isn't, automatically set the catapult to a downwards position
 		//next, check whether if the user pressed l1. If it is, then just simply run the catapult motor
-		//also check whether if the user pressed the catapult in the last .3 seconds, as to give the catapult time to resettle before firing
+		//also check whether if the user pressed the catapult in the last .3 seconds
+		// as to give the catapult time to resettle before firing
 
 
 		if (r2.changedToPressed())
