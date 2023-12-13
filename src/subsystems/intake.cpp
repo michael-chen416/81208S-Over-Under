@@ -2,15 +2,20 @@
 
 void updateIntake()
 {
+  //meh ill just put the code explination here
+  //We check whether if the user is pressing the r1 or r2 button
+  //r1 is intake, r2 is outtake
+  //if r1, for example, is pressed, it runs to the intake at full speed, same principal for r2
+  //otherwise, don't move the intake.
   okapi::ControllerButton intakeButton(okapi::ControllerDigital::L1);
   okapi::ControllerButton outtakeButton(okapi::ControllerDigital::L2);
 
   if (intakeButton.isPressed())
-  { // If the intake button is pressed, move the intake motor group forward, if outtake, reverse it.
+  { 
     intake.moveVoltage(12000);
   }
   else if (outtakeButton.isPressed())
-  { // Same process as intake, but instead, reverse the direction of the intake motor group.
+  { 
     intake.moveVoltage(-12000);
   }
   else

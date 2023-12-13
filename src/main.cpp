@@ -104,6 +104,17 @@ void opcontrol()
 		updateIntake();
 		updatePneumatics();
 		// cata
+
+		//yo! engineering explination here!
+		//first have a way to toggle the catapult, in the case that something gets jammed
+		//l2
+		//For the main catapult code, we first check if the catapult is toggled or not.
+		//if it is toggled, don't move the catapult
+		//if it isn't, automatically set the catapult to a downwards position
+		//next, check whether if the user pressed l1. If it is, then just simply run the catapult motor
+		//also check whether if the user pressed the catapult in the last .3 seconds, as to give the catapult time to resettle before firing
+
+
 		if (r2.changedToPressed())
 		{
 			cataToggle = !cataToggle;
