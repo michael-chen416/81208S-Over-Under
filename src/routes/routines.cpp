@@ -199,6 +199,7 @@ void destruction()
     motion_profile motionProfile;
 
     motionProfile.moveDistance(24, 0, 1, {0.02, 0, 0.01}, {40, 0.01, 0.3, 3});
+    rotationTurn(30, 8000, 1, 1200, {0.02, 0, 0.08});
 
     // /*--Deploy intake--*/
     // catapult.moveVoltage(12000);

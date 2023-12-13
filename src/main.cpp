@@ -12,6 +12,8 @@ void initialize()
 {
 	pros::lcd::initialize();
 	gyro.reset();
+	pros::lcd::print(1, "TESTING TESTING");
+
 	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 	pros::lcd::print(3, "Yaw: %f", getIMU());
 	pros::lcd::register_btn1_cb(on_center_button);
