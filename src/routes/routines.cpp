@@ -18,10 +18,21 @@ void scoring()
     intake.moveVoltage(0);
     motionProfile.moveDistance(3, 0, 1, {0.02, 0, 0.04}, {25, 0.01, 0.3, 25}); // to not hit bar
     pros::delay(100);
+    
     rotationTurn(72, 8000, 1, 1200, {0.02, 0, 0.08}); // get to goal:
     pros::delay(100);
-    motionProfile.moveDistance(18, 72, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    motionProfile.moveDistance(11.5/*18*/, 72, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
     pros::delay(100);
+    //experimental turn
+    toggleMatchLoad();
+    moveLeftGroup(-12000);
+    moveRightGroup(12000);
+    pros::delay(500);
+    driveGroup.moveVoltage(0);
+    toggleMatchLoad();
+    motionProfile.moveDistance(6.5/*18*/, 72, 1, {0.05, 0, 0.01}, {40, 0.1, 0.3, 3});
+    //end
+
     rotationTurn(45, 8000, 1, 800, {0.02, 0, 0.08}); // pushing triball:
     intake.moveVoltage(-12000);
     pros::delay(500);
