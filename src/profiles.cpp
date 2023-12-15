@@ -28,7 +28,7 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // select 
 
 // Drivetrain
 /* Left front */ okapi::Motor lf(8, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
-/* Left bottom */ okapi::Motor lb(17, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
+/* Left bottom */ okapi::Motor lb(4, true, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 /* Left top */ okapi::Motor lt(18, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 /* Right front */ okapi::Motor rf(7, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
 /* Right back */ okapi::Motor rb(20, false, okapi::AbstractMotor::gearset::blue, okapi::AbstractMotor::encoderUnits::degrees);
