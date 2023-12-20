@@ -1,11 +1,12 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 4; 
+int autonNumber = 5; 
 // 0 = Winpoint
 // 1 = Score 4
 // 2 = Destruction
 // 3 = Score 5
 // 4 = Skills
+// 5 = Score 6
 
 void on_center_button() {}
 
@@ -90,11 +91,15 @@ void autonomous()
 		break;
 	case 3:
 		pros::lcd::set_text(1, "Score 5");
-		scoring();
+		scorefive();
 		break;
 	case 4:
 		pros::lcd::set_text(1, "SKILLS");
 		skills();
+		break;
+	case 5:
+		pros::lcd::set_text(1, "Score 6");
+		scoresix();
 		break;
 	}
 }

@@ -20,8 +20,8 @@ void driveChassis()
         turn gets value of horizontal position of right joystick on controller, controls turning/left right movement
         */
 
-        moveLeftGroup(std::clamp((forward + turn)*0.75, -1.0, 1.0) * 12000);
-        moveRightGroup(std::clamp((forward - turn)*0.75, -1.0, 1.0) * 12000);
+        moveLeftGroup(std::clamp((forward + turn)*0.85, -1.0, 1.0) * 12000);
+        moveRightGroup(std::clamp((forward - turn)*0.85, -1.0, 1.0) * 12000);
 
         /*
         uses values of joystick positions to calculate what way to move / how much to move each side
