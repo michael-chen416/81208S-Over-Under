@@ -1,6 +1,6 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 5; 
+int autonNumber = 5;
 // 0 = Winpoint
 // 1 = Score 4
 // 2 = Destruction
@@ -14,7 +14,6 @@ void initialize()
 {
 	pros::lcd::initialize();
 	gyro.reset();
-	pros::lcd::print(1, "TESTING TESTING");
 
 	pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 	pros::lcd::print(3, "Yaw: %f", getIMU());
@@ -136,7 +135,7 @@ void opcontrol()
 		// NOTICE: there is delay when it comes to updating values, so it is best if you make the potentiometer value around ~200ish lower than the value you want.
 		if (cataToggle)
 		{
-			catapult.moveVoltage(0);
+			catapult.moveVoltage(12000);
 		}
 		else
 		{
