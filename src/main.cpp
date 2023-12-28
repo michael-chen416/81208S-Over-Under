@@ -1,12 +1,14 @@
 #include "main.h"
 uint32_t lastPressed = -800;
-int autonNumber = 5;
+int autonNumber = 4;
 // 0 = Winpoint
-// 1 = Score 4
-// 2 = Destruction
+// 1 = Destruction
+// 2 = Score 4
 // 3 = Score 5
-// 4 = Skills
-// 5 = Score 6
+// 4 = Score 6
+// 5 = Skills
+// 6 = SoloWP
+// 7 = Tests
 
 void on_center_button() {}
 
@@ -81,24 +83,32 @@ void autonomous()
 		winpointAuton();
 		break;
 	case 1:
-		pros::lcd::set_text(1, "Score 4");
-		scoring();
-		break;
-	case 2:
 		pros::lcd::set_text(1, "Destruction");
 		destruction();
+		break;
+	case 2:
+		pros::lcd::set_text(1, "Score 4");
+		scoring();
 		break;
 	case 3:
 		pros::lcd::set_text(1, "Score 5");
 		scorefive();
 		break;
 	case 4:
+		pros::lcd::set_text(1, "Score 6");
+		scoresix();
+		break;
+	case 5:
 		pros::lcd::set_text(1, "SKILLS");
 		skills();
 		break;
-	case 5:
-		pros::lcd::set_text(1, "Score 6");
-		scoresix();
+	case 6:
+		pros::lcd::set_text(1, "Solo WP");
+		soloWP();
+		break;
+	case 7:
+		pros::lcd::set_text(1, "Test");
+		tests();
 		break;
 	}
 }

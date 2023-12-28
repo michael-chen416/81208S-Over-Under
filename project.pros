@@ -310,7 +310,7 @@
     },
     "upload_options": {
       "description": "81208S team code",
-      "slot": 6,
+      "slot": 5,
       "icon": "pros"
     }
   }
