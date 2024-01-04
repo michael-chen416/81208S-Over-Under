@@ -1,3 +1,8 @@
+/* ALL AUTON FILES ARE COMMENTED OUT DUE TO PNEUMATICS*/
+/* PNEUMATICS FILES ARE COMMENTED OUT */
+/* AUTON RUNNING IS COMMENTED OUT IN MAIN */
+/* UPDATE PNEUMATICS IS COMMENTED OUT IN OPCONTROL */
+
 #include "main.h"
 uint32_t lastPressed = -800;
 int autonNumber = 4;
@@ -76,41 +81,41 @@ void competition_initialize() {}
 void autonomous()
 {
 	motion_profile motionProfile;
-	switch (autonNumber)
-	{
-	case 0:
-		pros::lcd::set_text(1, "Winpoint");
-		winpointAuton();
-		break;
-	case 1:
-		pros::lcd::set_text(1, "Destruction");
-		destruction();
-		break;
-	case 2:
-		pros::lcd::set_text(1, "Score 4");
-		scoring();
-		break;
-	case 3:
-		pros::lcd::set_text(1, "Score 5");
-		scorefive();
-		break;
-	case 4:
-		pros::lcd::set_text(1, "Score 6");
-		scoresix();
-		break;
-	case 5:
-		pros::lcd::set_text(1, "SKILLS");
-		skills();
-		break;
-	case 6:
-		pros::lcd::set_text(1, "Solo WP");
-		soloWP();
-		break;
-	case 7:
-		pros::lcd::set_text(1, "Test");
-		tests();
-		break;
-	}
+	// switch (autonNumber)
+	// {
+	// case 0:
+	// 	pros::lcd::set_text(1, "Winpoint");
+	// 	winpointAuton();
+	// 	break;
+	// case 1:
+	// 	pros::lcd::set_text(1, "Destruction");
+	// 	destruction();
+	// 	break;
+	// case 2:
+	// 	pros::lcd::set_text(1, "Score 4");
+	// 	scoring();
+	// 	break;
+	// case 3:
+	// 	pros::lcd::set_text(1, "Score 5");
+	// 	scorefive();
+	// 	break;
+	// case 4:
+	// 	pros::lcd::set_text(1, "Score 6");
+	// 	scoresix();
+	// 	break;
+	// case 5:
+	// 	pros::lcd::set_text(1, "SKILLS");
+	// 	skills();
+	// 	break;
+	// case 6:
+	// 	pros::lcd::set_text(1, "Solo WP");
+	// 	soloWP();
+	// 	break;
+	// case 7:
+	// 	pros::lcd::set_text(1, "Test");
+	// 	tests();
+	// 	break;
+	// }
 }
 
 void opcontrol()
@@ -123,7 +128,7 @@ void opcontrol()
 		// basic chassis control, do not touch.
 		driveChassis();
 		updateIntake();
-		updatePneumatics();
+		// updatePneumatics();
 		// cata
 
 		//yo! engineering explination here!
