@@ -52,7 +52,10 @@ okapi::ControllerButton YButton(okapi::ControllerDigital::Y);         // select 
 /* Gyro */ pros::Imu gyro(18);
 
 // Pneumatics
-// /* Right wing */ pros::ADIDigitalOut rightWing('A', LOW);
-// /* Left wing */ pros::ADIDigitalOut leftWing('D', LOW);
-// /* Matchload bar */ pros::ADIDigitalOut matchloadBar('E', LOW);
-// /* Hang bar */ pros::ADIDigitalOut hangBar('B', LOW);
+/* Right wing */ pros::ADIDigitalOut rightWing('C', LOW);
+/* Left wing */ pros::ADIDigitalOut leftWing('G', LOW);
+/* Right rear wing */ pros::ADIDigitalOut rightRearWing('B', LOW);
+/* Left rear wing */ pros::ADIDigitalOut leftRearWing('D', LOW);
+/* Blocker Right */ pros::ADIDigitalOut blockerRight('A', LOW);
+/* Blocker left */ pros::ADIDigitalOut blockerLeft('D', LOW);
+/* Single use */ pros::ADIDigitalOut singlueUse('E', LOW);

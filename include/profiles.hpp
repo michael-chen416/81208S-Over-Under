@@ -54,5 +54,8 @@ extern okapi::ControllerButton XButton;
 // Pneumatics
 /* Right wing */ extern pros::ADIDigitalOut rightWing;
 /* Left wing */ extern pros::ADIDigitalOut leftWing;
-/* Matchload bar */ extern pros::ADIDigitalOut matchloadBar;
-/* Hang bar */ extern pros::ADIDigitalOut hangBar;
+/* Right rear wing */ extern pros::ADIDigitalOut rightRearWing;
+/* Left rear wing */ extern pros::ADIDigitalOut leftRearWing;
+/* Blocker left*/ extern pros::ADIDigitalOut blockerLeft;
+/* Blocker Right*/ extern pros::ADIDigitalOut blockerRight;
+/* Single use*/ extern pros::ADIDigitalOut singleUse;
