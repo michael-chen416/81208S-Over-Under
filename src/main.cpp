@@ -72,7 +72,9 @@ void autonomous()
 
 void opcontrol()
 {
-	pros::Controller master(pros::E_CONTROLLER_MASTER);
+	pros::Controller master(pros::E_CONTROLLER_MASTER);  
+	catapult.tarePosition();   // make sure the gear at right position, move to initialize function ????
+	int stepCnt = 1;
 	while (true)
 	{
 		// basic chassis control, do not touch.
@@ -83,6 +85,31 @@ void opcontrol()
 		pros::lcd::print(2, "Catapult pos: %f", potentiometer.get());
 		pros::lcd::print(3, "Yaw: %f", getIMU());
 
+		//manual launch
+		// if (r2.changedToPressed())
+		// {
+		// 	cataToggle = !cataToggle;
+		// 	catapult.moveAbsolute(180 * stepCnt, 12000);  // not good to use relative position function
+		// 	stepCnt ++;
+		// }
+
+		//auto launch
+		// while(stepCnt <= 10){
+		// 	catapult.moveAbsolute(180 * stepCnt, 12000);  // not good to use relative position function
+		// 	stepCnt ++;
+		// 	pros::delay(700);
+			
+		// }		
+
+		// peters dumb stuff
+		if (r1.isPressed()) {
+			catapult.moveAbsolute(180 * stepCnt, 12000);  // not good to use relative position function
+			stepCnt++;
+			pros::delay(700);
+		}
+
+
+/*
 		if (r2.changedToPressed())
 		{
 			cataToggle = !cataToggle;
@@ -96,7 +123,7 @@ void opcontrol()
 		{
 			if (potentiometer.get() > 1760) // CHANGE THIS POSITION
 			{
-				catapult.moveVoltage(9000);/*8500*/
+				catapult.moveVoltage(9000);//*8500
 			}
 			else if (potentiometer.get() > 1550 && potentiometer.get() < 1775)
 			{
@@ -120,7 +147,7 @@ void opcontrol()
 			{
 				catapult.moveVoltage(0);
 			}
-		}
+		}*/
 		pros::delay(20);
 	}
 }
